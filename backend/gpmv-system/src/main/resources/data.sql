@@ -1,1 +1,0 @@
-insert into cargos (id, nome) values (1, 'Junior')

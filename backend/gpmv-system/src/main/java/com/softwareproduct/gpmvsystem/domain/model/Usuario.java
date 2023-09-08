@@ -1,5 +1,6 @@
 package com.softwareproduct.gpmvsystem.domain.model;
 
+import com.softwareproduct.gpmvsystem.domain.model.enums.Perfil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,11 +23,5 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    @ManyToMany
-    @JoinTable(
-            name = "usuarios_pefis",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "perfil_id")
-    )
-    private List<Perfil> perfil;
+    private Perfil perfil;
 }

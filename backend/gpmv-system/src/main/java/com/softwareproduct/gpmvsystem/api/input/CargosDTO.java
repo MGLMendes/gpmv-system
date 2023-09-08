@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class CargosDTO {
-    private String nome;
+    private String cargo;
 }

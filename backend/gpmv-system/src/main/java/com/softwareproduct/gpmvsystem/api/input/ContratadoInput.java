@@ -1,8 +1,7 @@
 package com.softwareproduct.gpmvsystem.api.input;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.softwareproduct.gpmvsystem.domain.model.Cargos;
-import com.softwareproduct.gpmvsystem.domain.model.Endereco;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,5 +21,5 @@ public class ContratadoInput {
     private String registroGeral;
     private String cpf;
     private EnderecoInput endereco;
-    private CargoIdInput cargo;
+    private String cargo;
 }
