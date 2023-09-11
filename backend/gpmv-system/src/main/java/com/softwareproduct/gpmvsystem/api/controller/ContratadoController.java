@@ -2,16 +2,23 @@ package com.softwareproduct.gpmvsystem.api.controller;
 
 import com.softwareproduct.gpmvsystem.api.assamble.ContratadoAssamble;
 import com.softwareproduct.gpmvsystem.api.disassembler.ContratatoInputDisassembler;
-import com.softwareproduct.gpmvsystem.api.input.ContratadoInput;
 import com.softwareproduct.gpmvsystem.api.dto.ContratadoDTO;
+import com.softwareproduct.gpmvsystem.api.input.ContratadoAttInput;
+import com.softwareproduct.gpmvsystem.api.input.ContratadoInput;
 import com.softwareproduct.gpmvsystem.domain.model.Contratado;
 import com.softwareproduct.gpmvsystem.domain.service.ContratadoService;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -36,6 +43,21 @@ public class ContratadoController {
     @GetMapping
     public ResponseEntity<List<ContratadoDTO>> todosContratados() {
         return ResponseEntity.ok(assamble.collectionEntityToList(contratadoService.todosContratados()));
+    }
+
+    @GetMapping("{matricula}")
+    public ResponseEntity<ContratadoDTO> pegarContratadoPorId(@PathVariable String matricula) {
+        return  ResponseEntity.ok(assamble.entityToDTO(contratadoService.contratadoPorMatricula(matricula)));
+    }
+
+    @PutMapping("{matricula}")
+    public ResponseEntity<ContratadoDTO> atualizarContratado(@PathVariable String matricula,
+                                                             @RequestBody ContratadoAttInput contratadoAttInput) {
+
+        Contratado contratado = contratadoService.contratadoPorMatricula(matricula);
+        disassembler.copyInputToEntity(contratado, contratadoAttInput);
+
+        return ResponseEntity.ok(assamble.entityToDTO(contratadoService.atualizar(contratado)));
     }
 
 }
