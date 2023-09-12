@@ -6,16 +6,24 @@
     box-sizing: border-box;
     text-decoration: none;
     outline: none;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body{
     background-color: #201b2c;
 }
 
+#btn-consultar {
+    margin-bottom: 10px;
+}
+
 section,
 footer{
     padding: 54px 0;
+}
+
+tbody {
+    background-color: white;
 }
 
 h3{
