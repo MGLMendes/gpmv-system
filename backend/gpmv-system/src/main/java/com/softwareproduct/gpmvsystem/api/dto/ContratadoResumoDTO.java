@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class ContratadoResumoDTO {
 
-    private Long id;
+    private String matricula;
     private String nome;
     private String email;
     private String cpf;

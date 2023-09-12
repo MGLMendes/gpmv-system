@@ -3,6 +3,7 @@ package com.softwareproduct.gpmvsystem.api.controller;
 import com.softwareproduct.gpmvsystem.api.assamble.ContratadoAssamble;
 import com.softwareproduct.gpmvsystem.api.disassembler.ContratatoInputDisassembler;
 import com.softwareproduct.gpmvsystem.api.dto.ContratadoDTO;
+import com.softwareproduct.gpmvsystem.api.dto.ContratadoResumoDTO;
 import com.softwareproduct.gpmvsystem.api.input.ContratadoAttInput;
 import com.softwareproduct.gpmvsystem.api.input.ContratadoInput;
 import com.softwareproduct.gpmvsystem.domain.model.Contratado;
@@ -38,6 +39,11 @@ public class ContratadoController {
     @GetMapping
     public ResponseEntity<List<ContratadoDTO>> todosContratados() {
         return ResponseEntity.ok(assamble.collectionEntityToList(contratadoService.todosContratados()));
+    }
+
+    @GetMapping("/resumo")
+    public ResponseEntity<List<ContratadoResumoDTO>> todosContratadoResumo() {
+        return ResponseEntity.ok(assamble.collectionEntityToResumeList(contratadoService.todosContratados()));
     }
 
     @GetMapping("{matricula}")

@@ -1,6 +1,7 @@
 package com.softwareproduct.gpmvsystem.api.assamble;
 
 import com.softwareproduct.gpmvsystem.api.dto.ContratadoDTO;
+import com.softwareproduct.gpmvsystem.api.dto.ContratadoResumoDTO;
 import com.softwareproduct.gpmvsystem.domain.model.Contratado;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -19,10 +20,22 @@ public class ContratadoAssamble {
         return modelMapper.map(contratado, ContratadoDTO.class);
     }
 
+    public ContratadoResumoDTO entityToResumo(Contratado contratado) {
+        return modelMapper.map(contratado, ContratadoResumoDTO.class);
+    }
+
     public List<ContratadoDTO> collectionEntityToList(List<Contratado> contratados) {
         return contratados.stream().map(
                 this::entityToDTO
         ).collect(Collectors.toList());
     }
+
+    public List<ContratadoResumoDTO> collectionEntityToResumeList(List<Contratado> contratados) {
+        return contratados.stream().map(
+                this::entityToResumo
+        ).collect(Collectors.toList());
+    }
+
+
 
 }
