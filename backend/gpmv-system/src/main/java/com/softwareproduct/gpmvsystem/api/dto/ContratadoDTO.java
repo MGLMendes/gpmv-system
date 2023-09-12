@@ -23,6 +23,6 @@ public class ContratadoDTO {
     private LocalDate dataNascimento;
     private String registroGeral;
     private String cpf;
-    private EnderecoDTO endereco;
+//    private EnderecoDTO endereco;
     private String cargo;
 }

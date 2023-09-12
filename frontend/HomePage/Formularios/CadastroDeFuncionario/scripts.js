@@ -139,7 +139,7 @@ function admitirContratado() {
   const cpf = cpfInput.value;
   const rg = rgInput.value;
   const dataNascimento = data.value.split('-').reverse().join('/');
-  const cargo = cargoInput.value;
+  const cargo = cargoInput.value.toUpperCase();
 
   
   const contratado = JSON.stringify({

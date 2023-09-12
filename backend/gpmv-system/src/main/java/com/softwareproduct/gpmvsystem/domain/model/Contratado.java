@@ -28,14 +28,14 @@ public class Contratado {
     protected LocalDate dataNascimento;
     private String registroGeral;
     private String cpf;
-    @Embedded
-    private Endereco endereco;
-//    @OneToOne
-//    @MapsId
-//    private Usuario usuario;
-//    @OneToOne
-//    @MapsId
-//    private Folhas folhas;
+//    @Embedded
+//    private Endereco endereco;
+////    @OneToOne
+////    @MapsId
+////    private Usuario usuario;
+////    @OneToOne
+////    @MapsId
+////    private Folhas folhas;
     @Enumerated(EnumType.STRING)
     private Cargos cargo;
 }
