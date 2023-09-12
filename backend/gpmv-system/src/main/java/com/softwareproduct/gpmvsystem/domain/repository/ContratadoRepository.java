@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ContratadoRepository extends JpaRepository<Contratado, Long> {
+
+    Contratado findByMatricula(String matricula);
 }

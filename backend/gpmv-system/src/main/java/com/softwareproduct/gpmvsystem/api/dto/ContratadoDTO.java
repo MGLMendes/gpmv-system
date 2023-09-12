@@ -15,6 +15,7 @@ import java.time.LocalDate;
 public class ContratadoDTO {
 
     private Long id;
+    private String matricula;
     private String nome;
     private String nomePai;
     private String nomeMae;
@@ -23,5 +24,5 @@ public class ContratadoDTO {
     private String registroGeral;
     private String cpf;
     private EnderecoDTO endereco;
-    private CargosDTO cargo;
+    private String cargo;
 }
