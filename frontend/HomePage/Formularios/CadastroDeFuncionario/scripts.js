@@ -2,27 +2,28 @@ const form = document.getElementById("form");
 const username = document.getElementById("username");
 const mae = document.getElementById("mae");
 const pai = document.getElementById("pai");
-const email = document.getElementById("email");
-const cpf = document.getElementById("cpf");
-const rg = document.getElementById("rg");
+const emailInput = document.getElementById("email");
+const cpfInput = document.getElementById("cpf");
+const rgInput = document.getElementById("rg");
 const data = document.getElementById("data");
-const cargo = document.getElementById("cargo");
+const cargoInput = document.getElementById("cargo");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   checkInputs();
+  admitirContratado();
 });
 
 function checkInputs() {
   const usernameValue = username.value;
   const maeValue = mae.value;
   const paiValue = pai.value;
-  const emailValue = email.value;
-  const cpfValue = cpf.value;
-  const rgValue = rg.value;
-  const dataValue = data.value;
-  const cargoValue = cargo.value;
+  const emailValue = emailInput.value;
+  const cpfValue = cpfInput.value;
+  const rgValue = rgInput.value;
+  const dataValue = data.value.split('-').reverse().join('/');
+  const cargoValue = cargoInput.value;
 
   if (usernameValue === "") {
     setErrorFor(username, "O nome completo é obrigatório.");
@@ -68,7 +69,7 @@ function checkInputs() {
 
   if (dataValue === "") {
     setErrorFor(data, "A data de nasicimento é obrigatória.");
-  } else if (!checkCpf(dataValue)) {
+  } else if (!checkData(dataValue)) {
     setErrorFor(data, "Por favor, insira uma Data válida.");
   } else {
     setSuccessFor(data);
@@ -113,4 +114,55 @@ function checkEmail(email) {
   return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
     email
   );
+}
+
+function checkCpf(cpf) {
+  return /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2})$/.test(cpf);
+}
+
+function checkRg(v) {
+  v=v.replace(/\D/g,"");
+  if(v.length == 9) v=v.replace(/(\d{2})(\d{3})(\d{3})(\d{1})$/,"$1.$2.$3-$4");
+  return v
+}
+
+function checkData(data) {
+  return /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/.test(data);
+}
+
+function admitirContratado() {
+  const nome = username.value;
+  const nomeMae = mae.value;
+  const nomePai = pai.value;
+  const email = emailInput.value;
+  const cpf = cpfInput.value;
+  const rg = rgInput.value;
+  const dataNascimento = data.value.split('-').reverse().join('/');
+  const cargo = cargoInput.value;
+
+  
+  const contratado = JSON.stringify({
+    "nome": nome,
+    "nomeMae": nomeMae,
+    "nomePai":nomePai,
+    "email": email,
+    "cpf":cpf,
+    "registroGeral": rg,
+    "dataNascimento": dataNascimento,
+    "cargo": cargo
+  });
+
+  console.log(contratado)
+  
+  $.ajax({
+    url:"http://localhost:8888/contratados",
+    type:"post",
+    data: contratado,
+    contentType: "application/json",
+
+    success: function(response) {
+      alert("Deu certo!")
+    }
+  })
+
 }

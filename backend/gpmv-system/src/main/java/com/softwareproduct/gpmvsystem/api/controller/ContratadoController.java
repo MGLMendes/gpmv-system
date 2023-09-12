@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin(maxAge = 20)
 @RestController
 @RequestMapping("/contratados")
 @RequiredArgsConstructor
