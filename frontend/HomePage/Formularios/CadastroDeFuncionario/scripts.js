@@ -12,7 +12,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   checkInputs();
-  admitirContratado();
+  
 });
 
 function checkInputs() {
@@ -89,6 +89,7 @@ function checkInputs() {
 
   if (formIsValid) {
     console.log("O formulário está 100% válido!");
+    admitirContratado();
   }
 }
 
@@ -161,7 +162,7 @@ function admitirContratado() {
     contentType: "application/json",
 
     success: function(response) {
-      alert("Deu certo!")
+      window.location.href = "../../index.html"
     }
   })
 
