@@ -1,6 +1,5 @@
 
 const emailInput = document.getElementById("email");
-const senhaInput = document.getElementById("senha");
 const senhaValhaInput = document.getElementById("senhaVelha");
 const senhaNovaInput = document.getElementById("senhaNova");
 const confirmaSenhaNovaInput = document.getElementById("confirmaSenhaNova");
@@ -30,32 +29,6 @@ function changeClassName() {
         classRedSenha.classList.add('textfield-senha');
         senhaInvalida.style.display = "none"
     }
-}
-
-
-function login() {
-    const email = emailInput.value
-    const senha = senhaInput.value
-
-    const usuario = JSON.stringify({
-        "email": email,
-        "senha": senha
-    });
-
-    $.ajax({
-        url:"http://localhost:8888/usuarios/login",
-        type:"post",
-        data: usuario,
-        contentType: "application/json",
-    
-        success: function(response) {
-            window.location.href = '../HomePage/index.html'            
-        },
-
-        error: function(response) {
-            validaResponse(response.responseJSON.causa);
-        }
-      })
 }
 
 function trocaSenha() {
