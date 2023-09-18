@@ -1,5 +1,6 @@
 package com.softwareproduct.gpmvsystem.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.softwareproduct.gpmvsystem.api.input.CargosDTO;
 import com.softwareproduct.gpmvsystem.api.input.EnderecoDTO;
 import com.softwareproduct.gpmvsystem.domain.model.Endereco;
@@ -23,6 +24,7 @@ public class ContratadoDTO {
     private LocalDate dataNascimento;
     private String registroGeral;
     private String cpf;
-//    private EnderecoDTO endereco;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataAdmissao;
     private String cargo;
 }

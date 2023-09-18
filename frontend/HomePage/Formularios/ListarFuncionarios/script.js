@@ -26,9 +26,8 @@ function preencherTabela(contratados) {
             $("<td>").text(contratado.nome),
             $("<td>").text(contratado.email),
             $("<td>").text(contratado.cpf),
-
+            $("<td>").text(contratado.dataAdmissao)
         );
-
         linha.appendTo("#tabela")
     });
 }

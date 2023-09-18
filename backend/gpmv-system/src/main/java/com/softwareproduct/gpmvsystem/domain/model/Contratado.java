@@ -25,17 +25,18 @@ public class Contratado {
     private String nomeMae;
     private String email;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    protected LocalDate dataNascimento;
+    private LocalDate dataNascimento;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataAdmissao = LocalDate.now();
     private String registroGeral;
     private String cpf;
 //    @Embedded
 //    private Endereco endereco;
-////    @OneToOne
-////    @MapsId
-////    private Usuario usuario;
-////    @OneToOne
-////    @MapsId
-////    private Folhas folhas;
+
     @Enumerated(EnumType.STRING)
     private Cargos cargo;
+
+    @OneToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 }

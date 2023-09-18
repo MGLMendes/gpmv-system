@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/LoginPage/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>LoginPage</title>
 </head>
 <body>
@@ -15,17 +15,19 @@
         <div class="right-login">
             <div class="card-login">
                 <h1>LOGIN</h1>
-                <div class="textfield">
-                    <label for="usuário">Usuário</label>
-                    <input type="text" name="usuário" placeholder="Usuário">
+                <div class="textfield-email">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" name="email" placeholder="Email">
                 </div>
-                <div class="textfield">
+                <div class="textfield-senha">
                     <label for="senha">Senha</label>
-                    <input type="password" name="senha" placeholder="Senha">
+                    <input id="senha" type="password" name="senha" placeholder="Senha">
                 </div>
-                <button class="bnt-login">Login</button>
+                <button id="bnt-login">Login</button>
             </div>
         </div>
-    </div>    
+    </div>   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="script.js"></script> 
 </body>
 </html>

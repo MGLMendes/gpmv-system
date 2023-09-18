@@ -2,6 +2,7 @@ package com.softwareproduct.gpmvsystem.domain.model;
 
 import com.softwareproduct.gpmvsystem.domain.model.enums.Perfil;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Usuario {
 
@@ -23,5 +25,6 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+    @Enumerated(EnumType.STRING)
     private Perfil perfil;
 }
