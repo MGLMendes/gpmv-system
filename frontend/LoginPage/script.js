@@ -8,8 +8,8 @@ const classSenha = document.querySelector('.textfield-senha');
 const emailInvalido =  document.querySelector(".email-invalido")
 const senhaInvalida =  document.querySelector(".senha-invalida")
 
-function changeClassName() {
 
+function changeClassName() {
     const classRedEmail = document.querySelector('.red-email');
     const classRedSenha = document.querySelector('.red-senha');
     
@@ -43,7 +43,7 @@ function login() {
         success: function(response) {
 
             if(response.primeiroAcesso) {
-                window.location.href = 'primeiro-acesso.html'
+                window.location.href = '../PrimeiroAcesso/index.html'
             } else {
                 window.location.href = '../HomePage/index.html'
             }
@@ -51,28 +51,26 @@ function login() {
         },
 
         error: function(response) {
-            const causa = response.responseJSON.causa;
-            
-
-            console.log(response.responseJSON.causa);
-
-            if (causa === "Email inválido") {
-                classEmail.classList.remove('textfield-email');
-                classEmail.classList.add('red-email');
-                emailInvalido.style.display = "inline"
-                
-            }
-
-            if (causa === "Senha inválida") {
-                classSenha.classList.remove('textfield-senha');
-                classSenha.classList.add('red-senha');
-                senhaInvalida.style.display = "inline"
-            }
+            validaResponse(response.responseJSON.causa);
         }
       })
 }
 
+function validaResponse(causa) {
+    if (causa === "Email inválido") {
+        classEmail.classList.remove('textfield-email');
+        classEmail.classList.add('red-email');
+        emailInvalido.style.display = "inline"
+        
+    }
+    if (causa === "Senha inválida") {
+        classSenha.classList.remove('textfield-senha');
+        classSenha.classList.add('red-senha');
+        senhaInvalida.style.display = "inline"
+    }
+}
+
 
 $("#bnt-login").click(login);
-$("#email").click(changeClassName)
-$("#senha").click(changeClassName)
+$("#email").click(changeClassName);
+$("#senha").click(changeClassName);

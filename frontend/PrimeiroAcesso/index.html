@@ -15,22 +15,26 @@
         <div class="right-login">
             <div class="card-login">
                 <h1>Troca de Senha</h1>
+                <div class="textfield-email">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" name="email" placeholder="Email">
+                    <p class="email-invalido">Email inválido</p>
+                </div>
                 <div class="textfield-senha">
                     <label for="senhaVelha">Senha Antiga</label>
-                    <input id="senha" type="text" name="senhaVelha" placeholder="Senha Antiga">
-                    <p class="senha-invalida">senha inválida</p>
-                    <a href="/HomePage/index.html"></a>
-                </div>
-                <div class="textfield-senha">
-                    <label for="senhaNova">Senha Nova</label>
-                    <input id="senha" type="password" name="senhaNova" placeholder="Senha Nova">
+                    <input id="senhaVelha" type="password" name="senhaVelha" placeholder="Senha Antiga">
                     <p class="senha-invalida">Senha inválida</p>
+                </div>
+                <div class="textfield-nova-senha1">
+                    <label for="senhaNova">Senha Nova</label>
+                    <input id="senhaNova" type="password" name="senhaNova" placeholder="Senha Nova">
+                    <p class="senha-invalida1"></p>
                 </div>
 
-                <div class="textfield-senha">
+                <div class="textfield-nova-senha2">
                     <label for="confirmaSenhaNova">Confirma Senha Nova</label>
-                    <input id="senha" type="password" name="confirmaSenhaNova" placeholder="Senha Nova">
-                    <p class="senha-invalida">Senha inválida</p>
+                    <input id="confirmaSenhaNova" type="password" name="confirmaSenhaNova" placeholder="Senha Nova">
+                    <p class="senha-invalida2"></p>
                 </div>
                 <button id="bnt-nova-senha">Trocar Senha</button>
             </div>

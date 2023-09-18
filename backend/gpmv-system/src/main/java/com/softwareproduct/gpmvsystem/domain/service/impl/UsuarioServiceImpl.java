@@ -92,7 +92,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             return UsuarioDTO.builder()
                     .usuarioValido(false)
                     .primeiroAcesso(contratado.getUsuario().getPrimeiroAcesso())
-                    .causa("Não use a mesma senha! Mude para uma nova :)")
+                    .causa("Não use a mesma senha")
                     .build();
         }
 
