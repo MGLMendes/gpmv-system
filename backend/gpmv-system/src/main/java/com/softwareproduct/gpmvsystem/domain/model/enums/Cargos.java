@@ -13,7 +13,8 @@ public enum Cargos {
 
     JUNIOR("JUNIOR"),
     PLENO("PLENO"),
-    SENIOR("SENIOR");
+    SENIOR("SENIOR"),
+    LIDER("LIDER");
 
 
     private String cargo;

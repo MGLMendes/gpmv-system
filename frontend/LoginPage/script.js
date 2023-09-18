@@ -2,6 +2,12 @@
 const emailInput = document.getElementById("email");
 const senhaInput = document.getElementById("senha");
 
+const classEmail = document.querySelector('.textfield-email');
+const classSenha = document.querySelector('.textfield-senha');
+
+const emailInvalido =  document.querySelector(".email-invalido")
+const senhaInvalida =  document.querySelector(".senha-invalida")
+
 function changeClassName() {
 
     const classRedEmail = document.querySelector('.red-email');
@@ -10,9 +16,11 @@ function changeClassName() {
     if (classRedEmail) {
         classRedEmail.classList.remove('red-email');
         classRedEmail.classList.add('textfield-email');
+        emailInvalido.style.display = "none"
     } else if (classRedSenha)  {
         classRedSenha.classList.remove('red-senha');
         classRedSenha.classList.add('textfield-senha');
+        senhaInvalida.style.display = "none"
     }
 }
 
@@ -33,7 +41,7 @@ function login() {
         contentType: "application/json",
     
         success: function(response) {
-          console.log(response)
+            window.location.href = '../HomePage/index.html'
         },
 
         error: function(response) {
@@ -43,18 +51,16 @@ function login() {
             console.log(response.responseJSON.causa);
 
             if (causa === "Email inválido") {
-                const elemento = document.querySelector('.textfield-email');
-                elemento.classList.remove('textfield-email');
-                elemento.classList.add('red-email');
+                classEmail.classList.remove('textfield-email');
+                classEmail.classList.add('red-email');
+                emailInvalido.style.display = "inline"
                 
-                console.log(elemento)
             }
 
             if (causa === "Senha inválida") {
-                const elemento = document.querySelector('.textfield-senha');
-                elemento.classList.remove('textfield-senha');
-                elemento.classList.add('red-senha');
-                console.log(elemento)
+                classSenha.classList.remove('textfield-senha');
+                classSenha.classList.add('red-senha');
+                senhaInvalida.style.display = "inline"
             }
         }
       })

@@ -14,6 +14,7 @@ public class ContratadoResumoDTO {
     private String nome;
     private String email;
     private String cpf;
+    private String cargo;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAdmissao;
 }

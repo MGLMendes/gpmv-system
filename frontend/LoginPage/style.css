@@ -36,6 +36,18 @@ body *{
     width: 35vw;
 }
 
+.email-invalido {
+    color: #f0ffffde;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.senha-invalida {
+    color: #f0ffffde;
+    margin-bottom: 10px;
+    display: none;
+}
+
 .right-login{
     width: 50vw;
     height: 100vh;
