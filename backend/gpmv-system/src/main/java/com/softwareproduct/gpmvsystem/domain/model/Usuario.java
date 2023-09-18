@@ -27,4 +27,6 @@ public class Usuario {
     private String senha;
     @Enumerated(EnumType.STRING)
     private Perfil perfil;
+
+    private Boolean primeiroAcesso;
 }

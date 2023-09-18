@@ -41,7 +41,13 @@ function login() {
         contentType: "application/json",
     
         success: function(response) {
-            window.location.href = '../HomePage/index.html'
+
+            if(response.primeiroAcesso) {
+                window.location.href = 'primeiro-acesso.html'
+            } else {
+                window.location.href = '../HomePage/index.html'
+            }
+            
         },
 
         error: function(response) {

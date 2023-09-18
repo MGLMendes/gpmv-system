@@ -26,6 +26,13 @@ public class ContratadoServiceImpl implements ContratadoService {
     @Transactional
     @Override
     public Contratado admitir(Contratado contratadoInput) {
+
+        Contratado contratado = repository.findByEmail(contratadoInput.getEmail());
+
+        if (contratado != null) {
+            throw new IllegalArgumentException("Contratado já admitido");
+        }
+
         var numero = new Random().nextInt(999999 - 100000 + 1) + 100000;
         contratadoInput.setMatricula("T"+numero);
         Usuario usuario = usuarioService.criarUsuario(contratadoInput);

@@ -2,6 +2,7 @@ package com.softwareproduct.gpmvsystem.api.controller;
 
 import com.softwareproduct.gpmvsystem.api.dto.UsuarioDTO;
 import com.softwareproduct.gpmvsystem.api.input.UsuarioInput;
+import com.softwareproduct.gpmvsystem.api.input.UsuarioTrocaSenhaInput;
 import com.softwareproduct.gpmvsystem.domain.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +29,17 @@ public class UsuarioController {
             return ResponseEntity.ok(usuarioDTO);
         } else {
             return ResponseEntity.badRequest().body(usuarioDTO);
-
         }
 
+    }
+
+    @PostMapping("/primeiro-acesso")
+    public ResponseEntity<UsuarioDTO> trocarSenha(@RequestBody UsuarioTrocaSenhaInput usuarioTrocaSenhaInput) {
+        UsuarioDTO usuario = usuarioService.trocarSenhaPrimeiroAcesso(usuarioTrocaSenhaInput);
+        if (usuario.getUsuarioValido()) {
+            return ResponseEntity.ok(usuario);
+        } else {
+            return ResponseEntity.badRequest().body(usuario);
+        }
     }
 }

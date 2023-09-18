@@ -12,5 +12,6 @@ import lombok.Setter;
 public class UsuarioDTO {
 
     private Boolean usuarioValido;
+    private Boolean primeiroAcesso;
     private String causa;
 }
