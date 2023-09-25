@@ -5,15 +5,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  width: 100%;
-  min-height: 100vh;
-  background-color: #201b2c;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .container {
   background-color: #fafafa;
   border-radius: 10px;

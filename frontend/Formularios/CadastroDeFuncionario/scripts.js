@@ -9,6 +9,8 @@ const data = document.getElementById("data");
 const cargoInput = document.getElementById("cargo");
 
 form.addEventListener("submit", (e) => {
+  console.log("Funcionando")
+
   e.preventDefault();
 
   checkInputs();
