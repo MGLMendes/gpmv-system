@@ -19,6 +19,8 @@ const senhaInvalida2 =  document.querySelector(".senha-invalida2")
 function changeClassName() {
     const classRedEmail = document.querySelector('.red-email');
     const classRedSenha = document.querySelector('.red-senha');
+    const classRedSenha1 = document.querySelector('.red-senha');
+    const classRedSenha2 = document.querySelector('.red-senha');
     
     if (classRedEmail) {
         classRedEmail.classList.remove('red-email');
@@ -28,6 +30,14 @@ function changeClassName() {
         classRedSenha.classList.remove('red-senha');
         classRedSenha.classList.add('textfield-senha');
         senhaInvalida.style.display = "none"
+    } else if (classRedSenha1) {
+        classRedSenha1.classList.remove('red-senha');
+        classNovaSenha1.classList.add('textfield-nova-senha1');
+        senhaInvalida1.style.display = "none"
+    } else if (classRedSenha2) {
+        classRedSenha2.classList.remove('red-senha');
+        classRedSenha2.classList.add('textfield-nova-senha2');
+        senhaInvalida2.style.display = "none"
     }
 }
 
@@ -84,7 +94,6 @@ function validaResponse(causa) {
         $(".senha-invalida1").text(`${causa}`)
         $(".senha-invalida2").text(`${causa}`)
     
-        
     } else {
         classNovaSenha1.classList.remove('textfield-nova-senha1');
         classNovaSenha2.classList.remove('textfield-nova-senha2');
