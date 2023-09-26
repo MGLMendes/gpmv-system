@@ -114,6 +114,7 @@ public class UsuarioServiceImpl implements UsuarioService {
                 .usuarioValido(true)
                 .primeiroAcesso(contratado.getUsuario().getPrimeiroAcesso())
                 .causa("Usuário válido")
+                .perfil(contratado.getUsuario().getPerfil().getDescricao())
                 .build();
     }
 

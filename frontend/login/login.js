@@ -41,7 +41,7 @@ function login() {
         contentType: "application/json",
     
         success: function(response) {
-
+            console.log("response")
             if(response.primeiroAcesso) {
                 window.location.href = '../primeiro-acesso/index.html'
             } else {

@@ -63,10 +63,16 @@ function trocaSenha() {
         contentType: "application/json",
     
         success: function(response) {
-            window.location.href = '../home-page/index.html'
+            if (response.perfil === 'ADMIN') {
+                window.location.href = '../home-page/index.html'
+            } else {
+                window.location.href = '../contratado/home-page/index.html'
+            }
+            
             
         },
         error: function(response) {
+            console.log(response)
             validaResponse(response.responseJSON.causa);
         }
       })

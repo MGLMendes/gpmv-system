@@ -7,13 +7,13 @@
   font-family: "Poppins", sans-serif;
 }
 :root {
-  --white-color: #fff;
-  --blue-color: #4070f4;
-  --grey-color: #707070;
+  --white-color: #201b2c;
+  --blue-color: #fff;
+  --grey-color: #f2f2f2;
   --grey-color-light: #aaa;
 }
 body {
-  background-color: #e7f2fd;
+  background-color: #333;
   transition: all 0.5s ease;
 }
 
@@ -293,7 +293,7 @@ body {
   }
   
   .form-control input {
-    border: 2px solid #f0f0f0;
+    border: 2px solid #aaa;
     display: block;
     border-radius: 10px;
     font-size: 14px;
@@ -318,7 +318,7 @@ body {
   .form button {
     background-color: #00ff88;
     border: 2px solid #00ff88;
-    color: #fff;
+    color: #2b134b;
     font-size: 14px;
     width: 100%;
     border-radius: 10px;

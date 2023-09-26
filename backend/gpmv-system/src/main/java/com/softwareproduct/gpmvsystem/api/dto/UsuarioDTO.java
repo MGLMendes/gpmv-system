@@ -1,5 +1,6 @@
 package com.softwareproduct.gpmvsystem.api.dto;
 
+import com.softwareproduct.gpmvsystem.domain.model.enums.Perfil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,4 +15,6 @@ public class UsuarioDTO {
     private Boolean usuarioValido;
     private Boolean primeiroAcesso;
     private String causa;
+
+    private String perfil;
 }
