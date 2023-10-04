@@ -28,7 +28,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario criarUsuario(Contratado contratado) {
         Perfil perfilUser = Perfil.CONTRATADO;
 
-        if (contratado.getCargo().getCargo().equalsIgnoreCase("LIDER")) {
+        if (contratado.getCargo().getCargo().equalsIgnoreCase("LIDER")
+            || contratado.getCargo().getCargo().equalsIgnoreCase("SCRUM MASTER")) {
             perfilUser = Perfil.ADMIN;
         }
 

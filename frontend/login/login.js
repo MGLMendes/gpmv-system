@@ -45,7 +45,12 @@ function login() {
             if(response.primeiroAcesso) {
                 window.location.href = '../primeiro-acesso/index.html'
             } else {
-                window.location.href = '../home-page/index.html'
+                if (response.perfil === 'ADMIN') {
+                    window.location.href = '../home-page/index.html'
+                } else {
+                    window.location.href = '../contratado/home-page/index.html'
+                }
+                
             }
             
         },

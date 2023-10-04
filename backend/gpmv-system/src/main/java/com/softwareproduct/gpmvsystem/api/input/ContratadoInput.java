@@ -20,6 +20,5 @@ public class ContratadoInput {
     private LocalDate dataNascimento;
     private String registroGeral;
     private String cpf;
-    private EnderecoInput endereco;
     private String cargo;
 }

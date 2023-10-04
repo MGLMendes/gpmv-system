@@ -191,8 +191,13 @@ function admitirContratado() {
   const cpf = cpfInput.value;
   const rg = rgInput.value;
   const dataNascimento = data.value.split('-').reverse().join('/');
-  const cargo = cargoInput.value.toUpperCase();
+  var cargo = cargoInput.value.toUpperCase();
 
+  if (cargo === "SCRUM MASTER") {
+    cargo = "SCRUM_MASTER"
+  }
+
+  console.log(cargo)
   
   const contratado = JSON.stringify({
     "nome": nome,

@@ -14,7 +14,8 @@ public enum Cargos {
     JUNIOR("JUNIOR"),
     PLENO("PLENO"),
     SENIOR("SENIOR"),
-    LIDER("LIDER");
+    LIDER("LIDER"),
+    SCRUM_MASTER("SCRUM MASTER");
 
 
     private String cargo;

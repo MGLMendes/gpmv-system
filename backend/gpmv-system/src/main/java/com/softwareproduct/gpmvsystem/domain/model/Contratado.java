@@ -30,9 +30,6 @@ public class Contratado {
     private LocalDate dataAdmissao = LocalDate.now();
     private String registroGeral;
     private String cpf;
-//    @Embedded
-//    private Endereco endereco;
-
     @Enumerated(EnumType.STRING)
     private Cargos cargo;
 
