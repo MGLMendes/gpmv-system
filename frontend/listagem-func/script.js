@@ -1,3 +1,6 @@
+
+var matriculaFuncAtt = null;
+
 function consultar() {
     $.ajax({
         url: "http://localhost:8888/contratados/resumo",
@@ -20,11 +23,11 @@ function preencherTabela(contratados) {
     $("#tabela tbody tr").remove();
     $.each(contratados, function(i, contratado) {
 
-      var linkAcao = $("<a href='#'>")
-        .text("Editar")
+      var linkAcao = $("<a href='#'> <i class='bx bx-edit-alt' id='icon-att' ></i>")
         .on('click', event => {
             event.preventDefault();
-            excluir(editar(contratado))
+            matriculaFuncAtt = contratado.matricula
+            window.location.href = 'atualizar.html'
         })
 
         var linha = $("<tr>");
@@ -34,14 +37,26 @@ function preencherTabela(contratados) {
             $("<td>").text(contratado.email),
             $("<td>").text(contratado.cpf),
             $("<td>").text(contratado.cargo),
-            $("<td>").text(contratado.dataAdmissao)
+            $("<td>").text(contratado.dataAdmissao),
+            $("<td>").append(linkAcao)
         );
         linha.appendTo("#tabela")
     });
 }
 
 function editar(contratado) {
-  
+  $.ajax({
+    url: "http://localhost:8888/contratados/"+contratado.matricula,
+    type: "put",
+
+    success: function(response) {
+        preencherTabela(response);
+    },
+
+    error: function(error) {
+        alert("Não foi possível atualizar o contratado!")
+    }
+});
 }
 
 
