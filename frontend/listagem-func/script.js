@@ -19,6 +19,14 @@ function preencherTabela(contratados) {
     console.log(contratados)
     $("#tabela tbody tr").remove();
     $.each(contratados, function(i, contratado) {
+
+      var linkAcao = $("<a href='#'>")
+        .text("Editar")
+        .on('click', event => {
+            event.preventDefault();
+            excluir(editar(contratado))
+        })
+
         var linha = $("<tr>");
         linha.append(
             $("<td>").text(contratado.matricula),
@@ -30,6 +38,10 @@ function preencherTabela(contratados) {
         );
         linha.appendTo("#tabela")
     });
+}
+
+function editar(contratado) {
+  
 }
 
 
