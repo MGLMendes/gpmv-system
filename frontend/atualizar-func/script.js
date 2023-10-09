@@ -1,51 +1,3 @@
-localStorage.clear()
-
-function consultar() {
-    $.ajax({
-        url: "http://localhost:8888/contratados",
-        type: "get",
-
-        success: function(response) {
-            preencherTabela(response);
-        },
-
-        error: function(error) {
-            alert("Não foi possível consultar os dados, provavelmente servidor não está de pé")
-        }
-    });
-}
-
-
-function preencherTabela(contratados) {
-    console.log($("#tabela tbody tr"))
-    console.log(contratados)
-    $("#tabela tbody tr").remove();
-    $.each(contratados, function(i, contratado) {
-
-      var linkAcao = $("<a href='#'> <i class='bx bx-edit-alt' id='icon-att' ></i>")
-        .on('click', event => {
-            event.preventDefault();
-            atualizar(contratado)
-            window.location.href = '../atualizar-func/atualizar.html'           
-        })
-
-        var linha = $("<tr>");
-        linha.append(
-            $("<td>").text(contratado.matricula),
-            $("<td>").text(contratado.nome),
-            $("<td>").text(contratado.email),
-            $("<td>").text(contratado.cpf),
-            $("<td>").text(contratado.cargo),
-            $("<td>").text(contratado.dataAdmissao),
-            $("<td>").append(linkAcao)
-        );
-        linha.appendTo("#tabela")
-    });
-}
-
-
-$("#btn-consultar").click(consultar);
-
 const body = document.querySelector("body");
 const darkLight = document.querySelector("#darkLight");
 const sidebar = document.querySelector(".sidebar");
@@ -94,3 +46,32 @@ if (window.innerWidth < 768) {
 }
 
 
+let funcionario = pegar(); 
+
+let inputNome = $("#username")
+let inputMae = $("#mae")
+let inputPai = $("#pai")
+let inputEmail = $("#email")
+let inputCargo = $("#cargo")
+
+inputNome.val(funcionario.nome)
+inputMae.val(funcionario.nomeMae)
+inputPai.val(funcionario.nomePai)
+inputEmail.val(funcionario.email)
+inputCargo.val(funcionario.cargo)
+
+
+function editar(contratado) {
+  $.ajax({
+    url: "http://localhost:8888/contratados/"+contratado.matricula,
+    type: "put",
+
+    success: function(response) {
+        preencherTabela(response);
+    },
+
+    error: function(error) {
+        alert("Não foi possível atualizar o contratado!")
+    }
+});
+}
