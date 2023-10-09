@@ -48,6 +48,8 @@ if (window.innerWidth < 768) {
 
 let funcionario = pegar(); 
 
+console.log(funcionario.matricula)
+
 let inputNome = $("#username")
 let inputMae = $("#mae")
 let inputPai = $("#pai")
@@ -61,13 +63,34 @@ inputEmail.val(funcionario.email)
 inputCargo.val(funcionario.cargo)
 
 
-function editar(contratado) {
+form.addEventListener("submit", (e) => {
+  console.log("Funcionando")
+
+  e.preventDefault();
+
+  editar()
+});
+
+
+function editar() {
+  console.log()
+
+  const funcionarioAtt =  JSON.stringify({
+    "nome": inputNome.val(),
+    "nomeMae": inputMae.val(),
+    "nomePai": inputPai.val(),
+    "email": inputEmail.val(),
+    "cargo": inputCargo.val().toUpperCase()
+  });
+  
   $.ajax({
-    url: "http://localhost:8888/contratados/"+contratado.matricula,
+    url: "http://localhost:8888/contratados/"+funcionario.matricula,
     type: "put",
+    data: funcionarioAtt,
+    contentType: "application/json",
 
     success: function(response) {
-        preencherTabela(response);
+      window.location.href = "../listagem-func/index.html"
     },
 
     error: function(error) {
