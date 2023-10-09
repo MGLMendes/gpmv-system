@@ -1,6 +1,10 @@
+localStorage.clear()
+
+let perfilUser = "";
+
 function consultar() {
     $.ajax({
-        url: "http://localhost:8888/contratados/resumo",
+        url: "http://localhost:8888/contratados",
         type: "get",
 
         success: function(response) {
@@ -19,6 +23,19 @@ function preencherTabela(contratados) {
     console.log(contratados)
     $("#tabela tbody tr").remove();
     $.each(contratados, function(i, contratado) {
+
+      var linkAcao = $("<a href='#'> <i class='bx bx-edit-alt' id='icon-att' ></i>")
+        .on('click', event => {
+            event.preventDefault();
+            pegarPerfil(contratado.matricula)
+            atualizar(contratado)
+
+            setTimeout(() => {
+              window.location.href = '../../atualizar-func/atualizar.html'   
+            }, 1000);
+
+        })
+
         var linha = $("<tr>");
         linha.append(
             $("<td>").text(contratado.matricula),
@@ -26,10 +43,27 @@ function preencherTabela(contratados) {
             $("<td>").text(contratado.email),
             $("<td>").text(contratado.cpf),
             $("<td>").text(contratado.cargo),
-            $("<td>").text(contratado.dataAdmissao)
+            $("<td>").text(contratado.dataAdmissao),
+            $("<td>").append(linkAcao)
         );
         linha.appendTo("#tabela")
     });
+}
+
+function pegarPerfil(matricula) {
+  $.ajax({
+    url: "http://localhost:8888/usuarios/"+matricula,
+    type: "get",
+
+    success: function(response) {
+      perfilUser = response.perfil;
+      atualizarPerfil(perfilUser)
+    },
+
+    error: function(error) {
+        alert("Não foi possível consultar os dados, provavelmente servidor não está de pé")
+    }
+});
 }
 
 

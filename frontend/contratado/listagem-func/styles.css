@@ -104,6 +104,10 @@ body {
 .sidebar.close .menu_title {
   padding: 6px 30px;
 }
+#icon-att {
+  text-decoration: none;
+  color: #201b2c;
+}
 .menu_title::before {
   color: var(--grey-color);
   white-space: nowrap;
