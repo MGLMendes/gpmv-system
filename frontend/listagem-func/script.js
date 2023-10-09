@@ -1,5 +1,7 @@
 localStorage.clear()
 
+let perfilUser = "";
+
 function consultar() {
     $.ajax({
         url: "http://localhost:8888/contratados",
@@ -25,8 +27,13 @@ function preencherTabela(contratados) {
       var linkAcao = $("<a href='#'> <i class='bx bx-edit-alt' id='icon-att' ></i>")
         .on('click', event => {
             event.preventDefault();
+            pegarPerfil(contratado.matricula)
             atualizar(contratado)
-            window.location.href = '../atualizar-func/atualizar.html'           
+
+            setTimeout(() => {
+              window.location.href = '../atualizar-func/atualizar.html'   
+            }, 1000);
+
         })
 
         var linha = $("<tr>");
@@ -41,6 +48,22 @@ function preencherTabela(contratados) {
         );
         linha.appendTo("#tabela")
     });
+}
+
+function pegarPerfil(matricula) {
+  $.ajax({
+    url: "http://localhost:8888/usuarios/"+matricula,
+    type: "get",
+
+    success: function(response) {
+      perfilUser = response.perfil;
+      atualizarPerfil(perfilUser)
+    },
+
+    error: function(error) {
+        alert("Não foi possível consultar os dados, provavelmente servidor não está de pé")
+    }
+});
 }
 
 

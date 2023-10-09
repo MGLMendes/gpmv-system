@@ -14,4 +14,6 @@ public interface UsuarioService {
 
     UsuarioDTO trocarSenhaPrimeiroAcesso(UsuarioTrocaSenhaInput input);
 
+    UsuarioDTO pegarUsuario(String matricula);
+
 }

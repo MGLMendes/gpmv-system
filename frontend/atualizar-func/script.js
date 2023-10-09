@@ -48,8 +48,6 @@ if (window.innerWidth < 768) {
 
 let funcionario = pegar(); 
 
-console.log(funcionario.matricula)
-
 let inputNome = $("#username")
 let inputMae = $("#mae")
 let inputPai = $("#pai")
@@ -62,6 +60,10 @@ inputPai.val(funcionario.nomePai)
 inputEmail.val(funcionario.email)
 inputCargo.val(funcionario.cargo)
 
+if (funcionario.perfil !== "ADMIN") {
+  inputCargo.prop("disabled", true );
+}
+
 
 form.addEventListener("submit", (e) => {
   console.log("Funcionando")
@@ -73,7 +75,6 @@ form.addEventListener("submit", (e) => {
 
 
 function editar() {
-  console.log()
 
   const funcionarioAtt =  JSON.stringify({
     "nome": inputNome.val(),

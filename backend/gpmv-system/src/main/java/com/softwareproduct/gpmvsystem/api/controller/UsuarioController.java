@@ -7,6 +7,8 @@ import com.softwareproduct.gpmvsystem.domain.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,5 +43,11 @@ public class UsuarioController {
         } else {
             return ResponseEntity.badRequest().body(usuario);
         }
+    }
+
+
+    @GetMapping("{matricula}")
+    public ResponseEntity<UsuarioDTO> pegarUsuario(@PathVariable String matricula) {
+        return ResponseEntity.ok(usuarioService.pegarUsuario(matricula));
     }
 }

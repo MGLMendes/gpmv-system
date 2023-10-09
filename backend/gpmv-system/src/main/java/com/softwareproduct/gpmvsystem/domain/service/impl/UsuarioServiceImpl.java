@@ -119,5 +119,21 @@ public class UsuarioServiceImpl implements UsuarioService {
                 .build();
     }
 
+    @Override
+    public UsuarioDTO pegarUsuario(String matricula) {
+        Contratado contratado = contratadoRepository.findByMatricula(matricula);
+
+        if (contratado!= null) {
+            return UsuarioDTO.builder()
+                    .usuarioValido(true)
+                    .primeiroAcesso(contratado.getUsuario().getPrimeiroAcesso())
+                    .causa("Usuário válido")
+                    .perfil(contratado.getUsuario().getPerfil().getDescricao())
+                    .build();
+        }
+
+        return null;
+    }
+
 
 }
