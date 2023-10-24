@@ -1,6 +1,7 @@
 package com.softwareproduct.gpmvsystem.domain.service.impl;
 
 import com.softwareproduct.gpmvsystem.api.input.ContratadoAttInput;
+import com.softwareproduct.gpmvsystem.domain.model.Beneficio;
 import com.softwareproduct.gpmvsystem.domain.model.Contratado;
 import com.softwareproduct.gpmvsystem.domain.model.Usuario;
 import com.softwareproduct.gpmvsystem.domain.repository.ContratadoRepository;
@@ -21,6 +22,7 @@ public class ContratadoServiceImpl implements ContratadoService {
     private final ContratadoRepository repository;
 
     private final UsuarioService usuarioService;
+
 
 
     @Transactional
@@ -58,6 +60,13 @@ public class ContratadoServiceImpl implements ContratadoService {
     @Transactional
     public Contratado atualizar(Contratado entity) {
         return repository.save(entity);
+    }
+
+    @Override
+    public List<Beneficio> consultarBeneficios(String matricula) {
+        Contratado contratado = contratadoPorMatricula(matricula);
+        List<Beneficio> beneficios = contratado.getBeneficios();
+        return beneficios;
     }
 
 }

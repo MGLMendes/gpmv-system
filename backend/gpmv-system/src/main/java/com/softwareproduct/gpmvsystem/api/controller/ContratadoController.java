@@ -6,6 +6,7 @@ import com.softwareproduct.gpmvsystem.api.dto.ContratadoDTO;
 import com.softwareproduct.gpmvsystem.api.dto.ContratadoResumoDTO;
 import com.softwareproduct.gpmvsystem.api.input.ContratadoAttInput;
 import com.softwareproduct.gpmvsystem.api.input.ContratadoInput;
+import com.softwareproduct.gpmvsystem.domain.model.Beneficio;
 import com.softwareproduct.gpmvsystem.domain.model.Contratado;
 import com.softwareproduct.gpmvsystem.domain.service.ContratadoService;
 import lombok.RequiredArgsConstructor;
@@ -60,5 +61,11 @@ public class ContratadoController {
 
         return ResponseEntity.ok(assamble.entityToDTO(contratadoService.atualizar(contratado)));
     }
+
+    @GetMapping("/{matricula}/beneficios")
+    public ResponseEntity<?> beneficiosDoContratado(@PathVariable String matricula) {
+        return ResponseEntity.ok(contratadoService.consultarBeneficios(matricula));
+    }
+
 
 }
