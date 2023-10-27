@@ -26,3 +26,7 @@ function atualizarPerfil(perfil) {
 function pegar() {;
     return contratado
 }
+
+function setContratadoNome(nome) {
+    localStorage.setItem("nome", nome)
+}

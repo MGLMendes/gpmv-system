@@ -59,6 +59,7 @@ public class UsuarioServiceImpl implements UsuarioService {
                     .usuarioValido(true)
                     .primeiroAcesso(contratado.getUsuario().getPrimeiroAcesso())
                     .causa("Usuário válido")
+                    .contratadoNome(contratado.getNome())
                     .build();
         } else {
             return UsuarioDTO.builder()
@@ -116,6 +117,7 @@ public class UsuarioServiceImpl implements UsuarioService {
                 .primeiroAcesso(contratado.getUsuario().getPrimeiroAcesso())
                 .causa("Usuário válido")
                 .perfil(contratado.getUsuario().getPerfil().getDescricao())
+                .contratadoNome(contratado.getNome())
                 .build();
     }
 

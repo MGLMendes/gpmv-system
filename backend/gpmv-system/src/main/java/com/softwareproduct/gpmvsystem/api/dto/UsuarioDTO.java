@@ -15,6 +15,6 @@ public class UsuarioDTO {
     private Boolean usuarioValido;
     private Boolean primeiroAcesso;
     private String causa;
-
     private String perfil;
+    private String contratadoNome;
 }

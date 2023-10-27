@@ -17,10 +17,9 @@ body {
   transition: all 0.5s ease;
 }
 
-
-
 /* navbar */
 .navbar {
+  position: fixed;
   top: 0;
   width: 100%;
   left: 0;
@@ -259,86 +258,9 @@ body {
   text-decoration: none;
 }
 
-
-.container {
-    background-color: #f8f6f6;
-    border-radius: 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    width: 300px;
-    max-width: 960px;
-    overflow: hidden;
-    margin: 0 auto;
-    margin-top: 30px;
-  }
-  
-  .header {
-    background-color: #eee;
-    padding: 20px;
-  }
-  
-  .form {
-    padding: 100px;
-    margin: auto;
-  }
-  
-  .form-control {
-    margin-bottom: 2px;
-    padding-bottom: 20px;
-    position: relative;
-  }
-  
-  .form-control label {
-    display: inline-block;
-    margin-bottom: 5px;
-  }
-  
-  .form-control input {
-    border: 2px solid #aaa;
-    display: block;
-    border-radius: 10px;
-    font-size: 14px;
-    width: 100%;
-    padding: 10px;
-  }
-  
-  .form-control i {
-    position: absolute;
-    top: 45px;
-    right: 10px;
-    visibility: hidden;
-  }
-  
-  .form-control small {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    visibility: hidden;
-  }
-
- input[type="radio"] {
-  width: 30px;
-  height: 30px;
-  padding: 0px;
-  margin: 10px;
- }
-  
-  .form button {
-    background-color: #00ff88;
-    border: 2px solid #00ff88;
-    color: #2b134b;
-    font-size: 14px;
-    width: 100%;
-    border-radius: 10px;
-    padding: 10px;
-    cursor: pointer;
-  }
-
-
-.header {
-  width: 100vw;
-}
-
-.opcao1 {
-  border-radius: 20px;
-  display: center;
+#div-nome {
+  color: white;
+  margin-left: 300px;
+  margin-top: 100px;
+  font-weight: normal;
 }
