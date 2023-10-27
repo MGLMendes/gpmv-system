@@ -62,10 +62,5 @@ public class ContratadoController {
         return ResponseEntity.ok(assamble.entityToDTO(contratadoService.atualizar(contratado)));
     }
 
-    @GetMapping("/{matricula}/beneficios")
-    public ResponseEntity<?> beneficiosDoContratado(@PathVariable String matricula) {
-        return ResponseEntity.ok(contratadoService.consultarBeneficios(matricula));
-    }
-
 
 }

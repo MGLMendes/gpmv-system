@@ -31,7 +31,7 @@ public class BeneficioController {
                 beneficioService.cadastrarBeneficios(contratado, beneficios)));
     }
 
-    @GetMapping("{matricula}/beneficios")
+    @GetMapping("/{matricula}")
     public ResponseEntity<List<BeneficioDTO>> consultarBeneficiosDoContratado(@PathVariable String matricula) {
         Contratado contratado = contratadoService.contratadoPorMatricula(matricula);
         return ResponseEntity.ok(beneficioAssamble.collectionEntityToList(
