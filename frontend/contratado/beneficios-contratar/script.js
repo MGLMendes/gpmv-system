@@ -82,7 +82,7 @@ function contratarBeneficio() {
 
   if(op2.checked) {
     bRefeicao = bRefeicao.textContent
-    precoRefeicao = precoAlimentacao.textContent
+    precoRefeicao = precoRefeicao.textContent
   } else {
     bRefeicao = null
     precoRefeicao = null

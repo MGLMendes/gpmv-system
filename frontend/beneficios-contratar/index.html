@@ -63,44 +63,48 @@
     
     <section>
       <div class="header-beneficios" style="background-color: gray;">
-          <h1>Beneficios Funcionário</h1>          
+          <h1>Benefícios Funcionário</h1>          
       </div>
 
       <div class="container">
         <input type="checkbox" id="opcao1" name="opcao1">
           <form id="form" class="form">
-          <h2>Alimentação</h2>
+          <h2 id="alimentacao">Alimentação</h2>
           <p>Aceito exclusivamente em estabelecimentos como supermercados, açougues, padarias e muito mais.</p>
+          <p>Preço: <strong id="preco-alimentacao">500.0</strong></p>
           </form>
       </div>
 
       <div class="container">
-        <input type="checkbox" id="opcao1" name="opcao1">
+        <input type="checkbox" id="opcao2" name="opcao2">
           <form id="form" class="form">
-          <h2>Vale refeição</h2>
+          <h2 id="refeicao">Vale Refeição</h2>
           <p>Aceito exclusivamente em estabelecimentos como restaurantes, mercados, lanchonetes, padarias, apps de delivery e muito mais.</p>
+          <p>Preço: <strong id="preco-refeicao">500.0</strong></p>
           </form>
       </div>
 
       <div class="container">
-        <input type="checkbox" id="opcao1" name="opcao1">
+        <input type="checkbox" id="opcao3" name="opcao3">
           <form id="form" class="form">
-          <h2>Vale Transporte</h2>
+          <h2 id="vt">Vale Transporte</h2>
           <p>O Vale Transporte é um benefício previsto por lei em muitos países, incluindo o Brasil, que visa auxiliar os trabalhadores a custear suas despesas de deslocamento para o trabalho</p>
+          <p>Preço: <strong id="preco-vt">250.0</strong></p>
           </form>
       </div>
 
       <div class="container">
-        <input type="checkbox" id="opcao1" name="opcao1">
+        <input type="checkbox" id="opcao4" name="opcao4">
           <form id="form" class="form">
-          <h2>GymPass</h2>
+          <h2 id="gym">GymPass</h2>
           <p>O Gympass é uma plataforma que oferece um serviço de assinatura de academias e atividades físicas do mundo, permitindo aos usuários acessar uma rede de academias e estúdios de fitness em todo o mundo</p>
+          <p>Preço: <strong id="preco-gym">100.0</strong></p>
           </form>
       </div>
 
-          <form id="form" class="form">
-            <button id="button">Solicitar</button>
-          </form>
+          
+        <button  id="button" onClick="contratarBeneficio()">Contratar Benefícios</button>
+          
       </div>
     </section>
 

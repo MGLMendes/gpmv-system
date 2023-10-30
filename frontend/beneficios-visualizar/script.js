@@ -49,12 +49,15 @@ var nomeFunc = document.getElementById("h1-beneficios")
 var matriculaFunc = localStorage.getItem("matricula")
 nomeFunc.textContent = "Benefícios, " + localStorage.getItem("nome");
 
-function consultar() {
+console.log(matriculaFunc)
+
+function visualizar() {
   $.ajax({
       url: "http://localhost:8888/beneficios/"+matriculaFunc,
       type: "get",
 
       success: function(response) {
+        console.log(response)
           preencherTabela(response);
       },
 

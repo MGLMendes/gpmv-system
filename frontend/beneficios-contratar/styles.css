@@ -344,8 +344,18 @@ body {
   }
 
 #button {
-  margin-left: 300px;
-  width: 70%;
+  margin-top: 10px;
+  margin-left: 380px;
+  background-color: #008CBA;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
 
 }
 
