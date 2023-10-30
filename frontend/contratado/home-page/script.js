@@ -45,3 +45,7 @@ if (window.innerWidth < 768) {
 } else {
   sidebar.classList.remove("close");
 }
+
+var olaNomeFunc = document.getElementById("ola")
+
+olaNomeFunc.textContent = "Bem vindo, " + localStorage.getItem("nome")

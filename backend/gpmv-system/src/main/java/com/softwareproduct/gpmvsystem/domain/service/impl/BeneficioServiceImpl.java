@@ -1,5 +1,6 @@
 package com.softwareproduct.gpmvsystem.domain.service.impl;
 
+import com.softwareproduct.gpmvsystem.api.input.BeneficioInput;
 import com.softwareproduct.gpmvsystem.domain.model.Beneficio;
 import com.softwareproduct.gpmvsystem.domain.model.Contratado;
 import com.softwareproduct.gpmvsystem.domain.repository.BeneficioRepository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -42,4 +44,36 @@ public class BeneficioServiceImpl implements BeneficioService {
 
         return beneficios;
     }
+
+    @Override
+    public List<BeneficioInput> removerNulos(List<BeneficioInput> beneficiosInput) {
+        List<BeneficioInput> novosBeneficiosInput = new ArrayList<>();
+
+        for (BeneficioInput beneficioInput : beneficiosInput){
+            if (beneficioInput.getBeneficio() != null) {
+                novosBeneficiosInput.add(beneficioInput);
+            }
+        }
+
+        return novosBeneficiosInput;
+    }
+
+    @Override
+    public void verificarBeneficosJaContratados(List<BeneficioInput> beneficiosInput, String matricula) {
+
+        List<Beneficio> beneficios = consultarBeneficios(matricula);
+
+        List<String> beneficiosNomes = beneficios.stream().map(
+                Beneficio::getBeneficio
+        ).collect(Collectors.toList());
+
+        for (BeneficioInput beneficioInput: beneficiosInput) {
+            if (beneficiosNomes.contains(beneficioInput.getBeneficio())) {
+                throw new RuntimeException("Benefício já cadastrado");
+            }
+        }
+
+
+    }
 }
+;

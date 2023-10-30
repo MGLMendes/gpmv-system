@@ -257,3 +257,9 @@ body {
 .bottom collapse_sidebar a{
   text-decoration: none;
 }
+
+#ola {
+  color: white;
+  margin-left: 350px;
+  margin-top: 100px;
+}

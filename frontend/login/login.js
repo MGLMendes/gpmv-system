@@ -42,16 +42,14 @@ function login() {
     
         success: function(response) {
             console.log("response")
+            setContratadoNome(response.contratadoNome)
+            setContratadoMatricula(response.contratadoMatricula)
             if(response.primeiroAcesso) {
-                setContratadoNome(response.contratadoNome)
-                setContratadoMatricula(response.contratadoMatricula)
                 window.location.href = '../primeiro-acesso/index.html'
             } else {
                 if (response.perfil === 'ADMIN') {
-                    setContratadoNome(response.contratadoNome)
                     window.location.href = '../home-page/index.html'
                 } else {
-                    setContratadoNome(response.contratadoNome)
                     window.location.href = '../contratado/home-page/index.html'
                 }
                 

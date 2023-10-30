@@ -7,7 +7,6 @@ const sidebarClose = document.querySelector(".collapse_sidebar");
 const sidebarExpand = document.querySelector(".expand_sidebar");
 sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
 
-
 sidebar.addEventListener("mouseenter", () => {
   if (sidebar.classList.contains("hoverable")) {
     sidebar.classList.remove("close");
@@ -47,6 +46,56 @@ if (window.innerWidth < 768) {
 }
 
 
-var olaNomeFunc = document.getElementById("ola")
+let funcionario = pegar(); 
 
-olaNomeFunc.textContent = "Olá, " + localStorage.getItem("nome")
+let inputNome = $("#username")
+let inputMae = $("#mae")
+let inputPai = $("#pai")
+let inputEmail = $("#email")
+let inputCargo = $("#cargo")
+
+inputNome.val(funcionario.nome)
+inputMae.val(funcionario.nomeMae)
+inputPai.val(funcionario.nomePai)
+inputEmail.val(funcionario.email)
+inputCargo.val(funcionario.cargo)
+
+if (funcionario.perfil !== "ADMIN") {
+  inputCargo.prop("disabled", true );
+}
+
+
+form.addEventListener("submit", (e) => {
+  console.log("Funcionando")
+
+  e.preventDefault();
+
+  editar()
+});
+
+
+function editar() {
+
+  const funcionarioAtt =  JSON.stringify({
+    "nome": inputNome.val(),
+    "nomeMae": inputMae.val(),
+    "nomePai": inputPai.val(),
+    "email": inputEmail.val(),
+    "cargo": inputCargo.val().toUpperCase()
+  });
+  
+  $.ajax({
+    url: "http://localhost:8888/contratados/"+funcionario.matricula,
+    type: "put",
+    data: funcionarioAtt,
+    contentType: "application/json",
+
+    success: function(response) {
+      window.location.href = "../listagem-func/index.html"
+    },
+
+    error: function(error) {
+        alert("Não foi possível atualizar o contratado!")
+    }
+});
+}

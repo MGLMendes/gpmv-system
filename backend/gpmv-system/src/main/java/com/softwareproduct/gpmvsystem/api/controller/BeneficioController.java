@@ -32,9 +32,11 @@ public class BeneficioController {
     @PostMapping("/{matricula}/contratar")
     public ResponseEntity<List<BeneficioDTO>> cadastrarBeneficio(@PathVariable String matricula,
                                                                  @RequestBody List<BeneficioInput> beneficiosInput) {
-        Contratado contratado = contratadoService.contratadoPorMatricula(matricula);
-        List<Beneficio> beneficios = beneficioInputDisassembler.copyCollectionInputToCollectionEntity(beneficiosInput);
 
+        beneficiosInput = beneficioService.removerNulos(beneficiosInput);
+        Contratado contratado = contratadoService.contratadoPorMatricula(matricula);
+        beneficioService.verificarBeneficosJaContratados(beneficiosInput, contratado.getMatricula());
+        List<Beneficio> beneficios = beneficioInputDisassembler.copyCollectionInputToCollectionEntity(beneficiosInput);
         return ResponseEntity.ok(beneficioAssamble.collectionEntityToList(
                 beneficioService.cadastrarBeneficios(contratado, beneficios)));
     }

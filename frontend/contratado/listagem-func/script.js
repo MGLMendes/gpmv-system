@@ -31,7 +31,7 @@ function preencherTabela(contratados) {
             atualizar(contratado)
 
             setTimeout(() => {
-              window.location.href = '../../atualizar-func/atualizar.html'   
+              window.location.href = '../atualizar-func/atualizar.html'   
             }, 1000);
 
         })

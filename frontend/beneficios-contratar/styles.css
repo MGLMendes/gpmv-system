@@ -348,3 +348,7 @@ body {
   width: 70%;
 
 }
+
+#logo-img {
+  text-decoration: none;
+}
