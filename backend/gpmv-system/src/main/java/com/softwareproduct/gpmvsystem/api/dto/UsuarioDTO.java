@@ -17,4 +17,6 @@ public class UsuarioDTO {
     private String causa;
     private String perfil;
     private String contratadoNome;
+
+    private String contratadoMatricula;
 }

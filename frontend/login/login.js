@@ -44,6 +44,7 @@ function login() {
             console.log("response")
             if(response.primeiroAcesso) {
                 setContratadoNome(response.contratadoNome)
+                setContratadoMatricula(response.contratadoMatricula)
                 window.location.href = '../primeiro-acesso/index.html'
             } else {
                 if (response.perfil === 'ADMIN') {

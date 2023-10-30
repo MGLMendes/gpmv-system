@@ -49,3 +49,11 @@ if (window.innerWidth < 768) {
 
 var nomeFunc = document.getElementById("nome-func")
 nomeFunc.textContent = localStorage.getItem("nome");
+
+function contratarBeneficio() {
+  window.location.href = '../beneficios-contratar/index.html' 
+}
+
+function visualizarBeneficios() {
+  window.location.href = '../beneficios-visualizar/index.html' 
+}

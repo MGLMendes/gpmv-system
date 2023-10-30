@@ -6,7 +6,7 @@ import com.softwareproduct.gpmvsystem.domain.model.Contratado;
 import java.util.List;
 
 public interface BeneficioService {
-    List<Beneficio> cadastrarBeneficios(Contratado contratado, List<String> beneficios);
+    List<Beneficio> cadastrarBeneficios(Contratado contratado, List<Beneficio> beneficios);
 
     List<Beneficio> consultarBeneficios(String matricula);
 }

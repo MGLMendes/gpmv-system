@@ -17,9 +17,9 @@ public class BeneficioServiceImpl implements BeneficioService {
     private final BeneficioRepository beneficioRepository;
 
     @Override
-    public List<Beneficio> cadastrarBeneficios(Contratado contratado, List<String> beneficios) {
-         for (String b : beneficios) {
-             Beneficio beneficio = new Beneficio(b);
+    public List<Beneficio> cadastrarBeneficios(Contratado contratado, List<Beneficio> beneficios) {
+         for (Beneficio beneficio : beneficios) {
+
              beneficio.setContratado(contratado);
 
              beneficioRepository.save(beneficio);

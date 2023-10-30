@@ -13,7 +13,7 @@
   --grey-color-light: #aaa;
 }
 body {
-  background-color: #333;
+  background-color: red;
   transition: all 0.5s ease;
 }
 
@@ -214,6 +214,12 @@ body {
   border-top: 1px solid var(--grey-color-light);
   background-color: var(--white-color);
 }
+
+#icon-att {
+  text-decoration: none;
+  color: #201b2c;
+}
+
 .bottom i {
   font-size: 20px;
 }
@@ -258,36 +264,31 @@ body {
   text-decoration: none;
 }
 
-#div-nome {
-  color: white;
-  margin-left: 300px;
-  margin-top: 100px;
-  font-weight: normal;
-}
-
-#contratarBeneficio {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  border-radius: 20px;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#visualizarBeneficio {
+#btn-consultar {
+  margin-bottom: 10px;
   margin-top: 10px;
-  background-color: #008CBA;
-  border: none;
-  border-radius: 20px;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
 }
+
+tbody {
+  background-color: white;
+}
+
+#h1-beneficios {
+  color: white;
+  margin-left: 390px;
+}
+
+th {
+  color: white;
+}
+
+p{
+  color: #0000009c;
+}
+
+.container{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+

@@ -7,7 +7,6 @@ const sidebarClose = document.querySelector(".collapse_sidebar");
 const sidebarExpand = document.querySelector(".expand_sidebar");
 sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
 
-
 sidebar.addEventListener("mouseenter", () => {
   if (sidebar.classList.contains("hoverable")) {
     sidebar.classList.remove("close");
@@ -46,14 +45,50 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
+var nomeFunc = document.getElementById("h1-beneficios")
+var matriculaFunc = localStorage.getItem("matricula")
+nomeFunc.textContent = "Benefícios, " + localStorage.getItem("nome");
 
-var nomeFunc = document.getElementById("nome-func")
-nomeFunc.textContent = localStorage.getItem("nome");
+function consultar() {
+  $.ajax({
+      url: "http://localhost:8888/beneficios/"+matriculaFunc,
+      type: "get",
 
-function contratarBeneficio() {
-  window.location.href = '../beneficios-contratar/index.html' 
+      success: function(response) {
+          preencherTabela(response);
+      },
+
+      error: function(error) {
+          alert("Não foi possível consultar os dados, provavelmente servidor não está de pé")
+      }
+  });
 }
 
-function visualizarBeneficios() {
-  window.location.href = '../beneficios-visualizar/index.html' 
+
+function preencherTabela(beneficios) {
+  console.log(beneficios)
+  $("#tabela tbody tr").remove();
+  $.each(beneficios, function(i, beneficio) {
+
+    var linkAcao = $("<a href='#'> <i class='bx bx-edit-alt' id='icon-att' ></i>")
+      .on('click', event => {
+          event.preventDefault();
+          pegarPerfil(beneficio.matricula)
+          atualizar(beneficio)
+
+          setTimeout(() => {
+            window.location.href = '../atualizar-func/atualizar.html'   
+          }, 1000);
+
+      })
+
+      var linha = $("<tr>");
+      linha.append(
+          $("<td>").text(beneficio.beneficio),
+          $("<td>").text(beneficio.preco),
+          $("<td>").text(beneficio.dataContratacao),
+          $("<td>").append(linkAcao)
+      );
+      linha.appendTo("#tabela")
+  });
 }

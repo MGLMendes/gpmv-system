@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+    <title>Visualizar Beneficios</title>
 </head>
-<body>
+<body style="background-color: #333;">
         <!-- navbar -->
         <nav class="navbar">
             <div class="logo_item">
@@ -61,21 +62,31 @@
             </div>
           </nav>
 
-          <div id="div-nome">
-            <h1>Olá,<p id="nome-func">Miguel</p></h1>
-            <br>
-            <h2>O que deseja fazer? </h2>
-            <br>
-            <br>
-            <button id="contratarBeneficio" onclick="contratarBeneficio()">Contratar Benefícos</button>
-            <br>
-            <button id="visualizarBeneficio" onclick="visualizarBeneficios()">Visualizar Benefícos</button>
+          <h1 id="h1-beneficios"></h1>
+
+          <div class="container">
+            <button id="btn-consultar" onclick="visualizar()" class="btn btn-primary">Visualizar Benefícios</button>
           </div>
-            
           
+          <div class="container">
+            <div class="row">
+              <table id="tabela" class="table table-striped table-hover">
+                  <thead class="thead-dark">
+                      <th>Benefício</th>
+                      <th>Preço</th>
+                      <th>Data Contratação</th>
+                      <th>Atualizar</th>
+                  </thead>
+                  <tbody class="tbody">
+                      
+                  </tbody>
+              </table>
+            </div>
+          </div>
           
 
-          <!-- JavaScript -->
+          <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
           <script src="script.js"></script>
+          <script src="../script.js"></script>
 </body>
 </html>

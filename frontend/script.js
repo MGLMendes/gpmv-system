@@ -30,3 +30,7 @@ function pegar() {;
 function setContratadoNome(nome) {
     localStorage.setItem("nome", nome)
 }
+
+function setContratadoMatricula(matricula) {
+    localStorage.setItem("matricula", matricula)
+}
