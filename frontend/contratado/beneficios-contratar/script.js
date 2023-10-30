@@ -130,7 +130,10 @@ function contratarBeneficio() {
     contentType: "application/json",
 
     success: function(response) {
-        console.log("DEU CERTo")
+        alert("Contratação de benefícios efetivada!")
+        setTimeout(() => {
+          window.location.href = '../beneficios-home/index.html'   
+        }, 1000);
     },
 
     error: function(error) {
