@@ -258,6 +258,9 @@ body {
   text-decoration: none;
 }
 
+#a-contratado, #a-listagem, #a-beneficios {
+  cursor: pointer;
+}
 
 #ola {
   color: white;

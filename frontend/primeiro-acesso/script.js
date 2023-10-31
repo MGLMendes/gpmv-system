@@ -67,7 +67,7 @@ function trocaSenha() {
         success: function(response) {
             setContratadoNome(contratado.nome)
             setContratadoMatricula(contratado.matricula)
-            if (response.perfil === 'ADMIN' || response.perfil == 'SCRUM MASTER') {
+            if (response.perfil === 'ADMIN') {
                 window.location.href = '../home-page/index.html'
             } else {
                 window.location.href = '../contratado/home-page/index.html'

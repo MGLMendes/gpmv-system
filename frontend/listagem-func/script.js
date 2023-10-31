@@ -2,6 +2,10 @@ localStorage.clear()
 
 let perfilUser = "";
 
+funcionario = pegar()
+
+console.log(funcionario.nome + " " + funcionario.matricula)
+
 function consultar() {
     $.ajax({
         url: "http://localhost:8888/contratados",

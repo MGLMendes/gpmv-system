@@ -51,7 +51,26 @@ var olaNomeFunc = document.getElementById("ola")
 
 olaNomeFunc.textContent = "Olá, " + localStorage.getItem("nome")
 
-var aContratado = document.getElementById("a-contratado")
-console.log(aContratado)
+contratado = pegar()
+
+function cadastrar() {
+  setContratadoNome(contratado.nome)
+  setContratadoMatricula(contratado.matricula)
+  window.location.href = "../cadastro-func/index.html"
+}
+
+function listagem() {
+  setContratadoNome(contratado.nome)
+  setContratadoMatricula(contratado.matricula)
+  window.location.href = "../listagem-func/index.html"
+}
+
+function beneficios() {
+  setContratadoNome(contratado.nome)
+  setContratadoMatricula(contratado.matricula)
+  window.location.href = "../beneficios-home/index.html"
+}
+
+
 
 
