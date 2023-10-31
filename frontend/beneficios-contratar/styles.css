@@ -363,3 +363,7 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+#a-contratado, #a-listagem, #a-beneficios {
+  cursor: pointer;
+}

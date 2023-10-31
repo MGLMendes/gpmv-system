@@ -52,13 +52,28 @@ var matriculaFunc = localStorage.getItem("matricula")
 nomeFunc.textContent = "Benefícios, " + contratado.nome;
 
 function imagem() {
-  setFuncionario(contratado)
+  setContratado(contratado)
   window.location.href = "../home-page/index.html"
 }
 
-function setFuncionario(funcionario) {
-  setContratadoNome(funcionario.nome)
-  setContratadoMatricula(funcionario.matricula)
+function cadastrar() {
+  setContratado(contratado)
+  window.location.href = "../cadastro-func/index.html"
+}
+
+function listagem() {
+  setContratado(contratado)
+  window.location.href = "../listagem-func/index.html"
+}
+
+function beneficios() {
+  setContratado(contratado)
+  window.location.href = "../beneficios-home/index.html"
+}
+
+function setContratado(contratado) {
+  setContratadoNome(contratado.nome)
+  setContratadoMatricula(contratado.matricula)
 }
 
 

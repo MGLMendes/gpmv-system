@@ -46,28 +46,43 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
-funcionario = pegar()
-
-function imagem() {
-  setFuncionario(funcionario)
-  window.location.href = "../home-page/index.html"
-}
-
 var nomeFunc = document.getElementById("nome-func")
 nomeFunc.textContent = localStorage.getItem("nome");
 
+funcionario = pegar()
+
+function imagem() {
+  setContratado(funcionario)
+  window.location.href = "../home-page/index.html"
+}
+
+function cadastrar() {
+  setContratado(funcionario)
+  window.location.href = "../cadastro-func/index.html"
+}
+
+function listagem() {
+  setContratado(funcionario)
+  window.location.href = "../listagem-func/index.html"
+}
+
+function beneficios() {
+  setContratado(funcionario)
+  window.location.href = "../beneficios-home/index.html"
+}
+
 function contratarBeneficio() {
-  setFuncionario(funcionario)
+  setContratado(funcionario)
   window.location.href = '../beneficios-contratar/index.html' 
 }
 
 function visualizarBeneficios() {
-  setFuncionario(funcionario)
+  setContratado(funcionario)
   window.location.href = '../beneficios-visualizar/index.html' 
 }
 
 
-function setFuncionario(funcionario) {
+function setContratado(funcionario) {
   setContratadoNome(funcionario.nome)
   setContratadoMatricula(funcionario.matricula)
 }

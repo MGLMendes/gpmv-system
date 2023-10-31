@@ -295,3 +295,7 @@ p{
 #logo-img {
   text-decoration: none;
 }
+
+#a-contratado, #a-listagem, #a-beneficios {
+  cursor: pointer;
+}

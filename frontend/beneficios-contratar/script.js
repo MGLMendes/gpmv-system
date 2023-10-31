@@ -68,15 +68,30 @@ var op4 =document.getElementById("opcao4")
 
 funcionario = pegar()
 
-  function imagem() {
-    setFuncionario(contratado)
-    window.location.href = "../home-page/index.html"
-  }
+function imagem() {
+  setContratado(funcionario)
+  window.location.href = "../home-page/index.html"
+}
   
-  function setFuncionario(funcionario) {
-    setContratadoNome(funcionario.nome)
-    setContratadoMatricula(funcionario.matricula)
-  }
+function cadastrar() {
+  setContratado(funcionario)
+  window.location.href = "../cadastro-func/index.html"
+}
+
+function listagem() {
+  setContratado(funcionario)
+  window.location.href = "../listagem-func/index.html"
+}
+
+function beneficios() {
+  setContratado(funcionario)
+  window.location.href = "../beneficios-home/index.html"
+}
+
+function setContratado(funcionario) {
+  setContratadoNome(funcionario.nome)
+  setContratadoMatricula(funcionario.matricula)
+}
 
 function contratarBeneficio() {
 
