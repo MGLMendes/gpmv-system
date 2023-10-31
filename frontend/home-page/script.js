@@ -50,3 +50,8 @@ if (window.innerWidth < 768) {
 var olaNomeFunc = document.getElementById("ola")
 
 olaNomeFunc.textContent = "Olá, " + localStorage.getItem("nome")
+
+var aContratado = document.getElementById("a-contratado")
+console.log(aContratado)
+
+

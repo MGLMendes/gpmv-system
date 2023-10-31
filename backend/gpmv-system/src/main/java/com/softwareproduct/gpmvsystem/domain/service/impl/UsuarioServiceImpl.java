@@ -60,6 +60,7 @@ public class UsuarioServiceImpl implements UsuarioService {
                     .primeiroAcesso(contratado.getUsuario().getPrimeiroAcesso())
                     .causa("Usuário válido")
                     .contratadoNome(contratado.getNome())
+                    .perfil(contratado.getCargo().getCargo())
                     .contratadoMatricula(contratado.getMatricula())
                     .build();
         } else {

@@ -45,9 +45,12 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
+contratado = pegar()
+console.log(contratado)
+
 var nomeFunc = document.getElementById("h1-beneficios")
 var matriculaFunc = localStorage.getItem("matricula")
-nomeFunc.textContent = "Benefícios, " + localStorage.getItem("nome");
+nomeFunc.textContent = "Benefícios, " + contratado.nome;
 
 
 function visualizar() {

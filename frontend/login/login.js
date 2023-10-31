@@ -41,13 +41,13 @@ function login() {
         contentType: "application/json",
     
         success: function(response) {
-            console.log("response")
+            console.log(response)
             setContratadoNome(response.contratadoNome)
             setContratadoMatricula(response.contratadoMatricula)
             if(response.primeiroAcesso) {
                 window.location.href = '../primeiro-acesso/index.html'
             } else {
-                if (response.perfil === 'ADMIN') {
+                if (response.perfil === 'ADMIN' || response.perfil === "SCRUM MASTER") {
                     window.location.href = '../home-page/index.html'
                 } else {
                     window.location.href = '../contratado/home-page/index.html'
