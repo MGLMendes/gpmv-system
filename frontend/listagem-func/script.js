@@ -10,6 +10,26 @@ function imagem() {
   window.location.href = "../home-page/index.html"
 }
 
+function cadastrar() {
+  setContratado(funcionario)
+  window.location.href = "../cadastro-func/index.html"
+}
+
+function listagem() {
+  setContratado(funcionario)
+  window.location.href = "../listagem-func/index.html"
+}
+
+function beneficios() {
+  setContratado(funcionario)
+  window.location.href = "../beneficios-home/index.html"
+}
+
+function setContratado(contratado) {
+  setContratadoNome(contratado.nome)
+  setContratadoMatricula(contratado.matricula)
+}
+
 function consultar() {
     $.ajax({
         url: "http://localhost:8888/contratados",
