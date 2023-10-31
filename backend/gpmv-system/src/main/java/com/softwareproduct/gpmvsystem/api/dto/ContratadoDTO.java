@@ -21,6 +21,7 @@ public class ContratadoDTO {
     private String nomePai;
     private String nomeMae;
     private String email;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
     private String registroGeral;
     private String cpf;

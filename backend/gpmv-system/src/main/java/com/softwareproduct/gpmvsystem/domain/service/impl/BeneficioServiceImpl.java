@@ -8,6 +8,7 @@ import com.softwareproduct.gpmvsystem.domain.service.BeneficioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +19,7 @@ public class BeneficioServiceImpl implements BeneficioService {
 
     private final BeneficioRepository beneficioRepository;
 
+    @Transactional
     @Override
     public List<Beneficio> cadastrarBeneficios(Contratado contratado, List<Beneficio> beneficios) {
          for (Beneficio beneficio : beneficios) {

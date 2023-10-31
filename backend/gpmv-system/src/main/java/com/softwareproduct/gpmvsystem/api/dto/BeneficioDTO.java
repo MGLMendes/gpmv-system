@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -19,5 +21,5 @@ public class BeneficioDTO {
     private String preco;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private String dataContratacao;
+    private LocalDate dataContratacao;
 }
