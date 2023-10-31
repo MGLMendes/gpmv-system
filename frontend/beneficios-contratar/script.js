@@ -66,6 +66,17 @@ var op2 =document.getElementById("opcao2")
 var op3 =document.getElementById("opcao3")
 var op4 =document.getElementById("opcao4")
 
+funcionario = pegar()
+
+  function imagem() {
+    setFuncionario(contratado)
+    window.location.href = "../home-page/index.html"
+  }
+  
+  function setFuncionario(funcionario) {
+    setContratadoNome(funcionario.nome)
+    setContratadoMatricula(funcionario.matricula)
+  }
 
 function contratarBeneficio() {
 
@@ -119,8 +130,6 @@ function contratarBeneficio() {
       "preco":precoGp
     }
   ])
-
-  funcionario = pegar()
 
   $.ajax({
     url: "http://localhost:8888/beneficios/"+matriculaFunc+"/contratar",

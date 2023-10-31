@@ -54,23 +54,23 @@ olaNomeFunc.textContent = "Olá, " + localStorage.getItem("nome")
 contratado = pegar()
 
 function cadastrar() {
-  setContratadoNome(contratado.nome)
-  setContratadoMatricula(contratado.matricula)
+  setContratado(contratado)
   window.location.href = "../cadastro-func/index.html"
 }
 
 function listagem() {
-  setContratadoNome(contratado.nome)
-  setContratadoMatricula(contratado.matricula)
+  setContratado(contratado)
   window.location.href = "../listagem-func/index.html"
 }
 
 function beneficios() {
-  setContratadoNome(contratado.nome)
-  setContratadoMatricula(contratado.matricula)
+  setContratado(contratado)
   window.location.href = "../beneficios-home/index.html"
 }
 
 
-
+function setContratado(contratado) {
+  setContratadoNome(contratado.nome)
+  setContratadoMatricula(contratado.matricula)
+}
 

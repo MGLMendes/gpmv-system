@@ -4,7 +4,11 @@ let perfilUser = "";
 
 funcionario = pegar()
 
-console.log(funcionario.nome + " " + funcionario.matricula)
+function imagem() {
+  setContratadoNome(funcionario.nome)
+  setContratadoMatricula(funcionario.matricula)
+  window.location.href = "../home-page/index.html"
+}
 
 function consultar() {
     $.ajax({

@@ -361,4 +361,5 @@ body {
 
 #logo-img {
   text-decoration: none;
+  cursor: pointer;
 }

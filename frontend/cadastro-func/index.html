@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="logo_item">
           <i class="bx bx-menu" id="sidebarOpen"></i>
-          <img src="images/logo.png" alt=""></i><a id="logo-img" href="../home-page/index.html">GPMV SYSTEM</a>
+          <img src="images/logo.png" alt=""></i><a id="logo-img" onclick="imagem()">GPMV SYSTEM</a>
         </div>
   
         <div class="search_bar">
@@ -44,9 +44,9 @@
               </div>
   
               <ul class="menu_items submenu">
-                <a href="../cadastro-func/index.html" class="nav_link sublink">Cadastro</a>
-                <a href="../listagem-func/index.html" class="nav_link sublink">Listagem</a>
-                <a href="../beneficios-home/index.html" class="nav_link sublink">Benefícios</a>
+                <a onclick="cadastrar()" id="a-contratado" class="nav_link sublink">Cadastro</a>
+                <a onclick="listagem()" id="a-listagem" class="nav_link sublink">Listagem</a>
+                <a onclick="beneficios()" id="a-beneficios" class="nav_link sublink">Benefícios</a>
               </ul>
             </li>
             <!-- end -->

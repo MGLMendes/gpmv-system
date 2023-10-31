@@ -46,11 +46,20 @@ if (window.innerWidth < 768) {
 }
 
 contratado = pegar()
-console.log(contratado)
 
 var nomeFunc = document.getElementById("h1-beneficios")
 var matriculaFunc = localStorage.getItem("matricula")
 nomeFunc.textContent = "Benefícios, " + contratado.nome;
+
+function imagem() {
+  setFuncionario(contratado)
+  window.location.href = "../home-page/index.html"
+}
+
+function setFuncionario(funcionario) {
+  setContratadoNome(funcionario.nome)
+  setContratadoMatricula(funcionario.matricula)
+}
 
 
 function visualizar() {
