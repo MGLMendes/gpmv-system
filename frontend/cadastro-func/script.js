@@ -219,6 +219,7 @@ function admitirContratado() {
     contentType: "application/json",
 
     success: function(response) {
+      setContratado(contratado)
       window.location.href = "../home-page/index.html"
     }
   })

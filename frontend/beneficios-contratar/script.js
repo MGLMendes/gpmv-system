@@ -48,7 +48,6 @@ if (window.innerWidth < 768) {
 }
 
 var matriculaFunc = localStorage.getItem("matricula")
-console.log(matriculaFunc)
 
 var bAlimentacao = document.getElementById("alimentacao")
 var precoAlimentacao = document.getElementById("preco-alimentacao")
@@ -69,8 +68,6 @@ var op4 =document.getElementById("opcao4")
 
 
 function contratarBeneficio() {
-
-  console.log(op1.checked)
 
   if(op1.checked) {
     bAlimentacao = bAlimentacao.textContent
@@ -123,6 +120,8 @@ function contratarBeneficio() {
     }
   ])
 
+  funcionario = pegar()
+
   $.ajax({
     url: "http://localhost:8888/beneficios/"+matriculaFunc+"/contratar",
     type: "post",
@@ -132,6 +131,8 @@ function contratarBeneficio() {
     success: function(response) {
         alert("Contratação de benefícios efetivada!")
         setTimeout(() => {
+          setContratadoMatricula(matriculaFunc)
+          setContratadoNome(funcionario.nome)
           window.location.href = '../beneficios-home/index.html'   
         }, 1000);
     },

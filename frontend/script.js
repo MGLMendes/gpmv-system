@@ -15,8 +15,16 @@ function atualizar(contratadoInput) {
     localStorage.setItem("nomePai", contratadoInput.nomePai)
     localStorage.setItem("email", contratadoInput.email)
     localStorage.setItem("cargo", contratadoInput.cargo)
-    localStorage.setItem("matricula", contratadoInput.matricula)
-    
+    localStorage.setItem("matricula", contratadoInput.matricula)  
+}
+
+function setContratado(contratadoInput) {
+    localStorage.setItem("nome", contratadoInput.nome)
+    localStorage.setItem("nomeMae", contratadoInput.nomeMae)
+    localStorage.setItem("nomePai", contratadoInput.nomePai)
+    localStorage.setItem("email", contratadoInput.email)
+    localStorage.setItem("cargo", contratadoInput.cargo)
+    localStorage.setItem("matricula", contratadoInput.matricula)  
 }
 
 function atualizarPerfil(perfil) {

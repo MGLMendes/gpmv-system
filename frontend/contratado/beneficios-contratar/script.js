@@ -67,6 +67,7 @@ var op2 =document.getElementById("opcao2")
 var op3 =document.getElementById("opcao3")
 var op4 =document.getElementById("opcao4")
 
+contratado = pegar()
 
 function contratarBeneficio() {
 
@@ -132,6 +133,8 @@ function contratarBeneficio() {
     success: function(response) {
         alert("Contratação de benefícios efetivada!")
         setTimeout(() => {
+          setContratadoNome(contratado.nome)
+          setContratadoMatricula(matriculaFunc)
           window.location.href = '../beneficios-home/index.html'   
         }, 1000);
     },

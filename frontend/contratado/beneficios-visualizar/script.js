@@ -49,7 +49,6 @@ var nomeFunc = document.getElementById("h1-beneficios")
 var matriculaFunc = localStorage.getItem("matricula")
 nomeFunc.textContent = "Benefícios, " + localStorage.getItem("nome");
 
-console.log(matriculaFunc)
 
 function visualizar() {
   $.ajax({
@@ -89,8 +88,7 @@ function preencherTabela(beneficios) {
       linha.append(
           $("<td>").text(beneficio.beneficio),
           $("<td>").text(beneficio.preco),
-          $("<td>").text(beneficio.dataContratacao),
-          $("<td>").append(linkAcao)
+          $("<td>").text(beneficio.dataContratacao)
       );
       linha.appendTo("#tabela")
   });

@@ -91,6 +91,8 @@ function editar() {
     contentType: "application/json",
 
     success: function(response) {
+      setContratadoNome(inputNome.nome)
+      setContratadoMatricula(funcionario.matricula)
       window.location.href = "../listagem-func/index.html"
     },
 

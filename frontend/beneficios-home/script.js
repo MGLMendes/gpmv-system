@@ -46,14 +46,19 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
+funcionario = pegar()
 
 var nomeFunc = document.getElementById("nome-func")
 nomeFunc.textContent = localStorage.getItem("nome");
 
 function contratarBeneficio() {
+  setContratadoNome(nomeFunc)
+  setContratadoMatricula(funcionario.matricula)
   window.location.href = '../beneficios-contratar/index.html' 
 }
 
 function visualizarBeneficios() {
+  setContratadoNome(nomeFunc)
+  setContratadoMatricula(funcionario.matricula)
   window.location.href = '../beneficios-visualizar/index.html' 
 }

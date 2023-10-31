@@ -46,6 +46,12 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
+contratado = pegar()
+
 var olaNomeFunc = document.getElementById("ola")
 
 olaNomeFunc.textContent = "Bem vindo, " + localStorage.getItem("nome")
+
+setContratadoNome(contratado.nome)
+setContratadoMatricula(contratado.matricula)
+

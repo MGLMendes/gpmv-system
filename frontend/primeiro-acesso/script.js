@@ -41,6 +41,8 @@ function changeClassName() {
     }
 }
 
+contratado = pegar()
+
 function trocaSenha() {
     const email = emailInput.value
     const senhaVelha = senhaValhaInput.value
@@ -63,6 +65,8 @@ function trocaSenha() {
         contentType: "application/json",
     
         success: function(response) {
+            setContratadoNome(contratado.nome)
+            setContratadoMatricula(contratado.matricula)
             if (response.perfil === 'ADMIN') {
                 window.location.href = '../home-page/index.html'
             } else {
