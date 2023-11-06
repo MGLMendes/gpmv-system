@@ -70,8 +70,7 @@ var nome = localStorage.getItem("nome")
 var nomeFunc = document.getElementById("h1-ferias")
 nomeFunc.textContent = "Férias, " + nome;
 
-var dataInicio = "";
-var dataFim = "";
+
 
 var h2Ferias = document.getElementById("h2-ferias")
 
@@ -100,14 +99,11 @@ $.ajax({
   type: "get",
 
   success: function(response) {
-      dataInicio = response.dataInicio;
-      dataFim = response.dataFim;
+    h2Ferias.textContent = "Parabéns " + nome + ", suas férias estão marcadas para começar " + response.inicio + " e terminar dia " + response.fim
   },
 
   error: function(error) {
-      alert("Não foi possível consultar os dados, provavelmente servidor não está de pé")
+    h2Ferias.textContent = error.responseJSON.message
   }
 });
 
-
-h2Ferias.textContent = "Parabéns " + nome + ", suas férias estão marcadas para começar \n" + dataInicio + " e terminar dia " + dataFim

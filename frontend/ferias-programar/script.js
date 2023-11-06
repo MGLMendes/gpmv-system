@@ -106,10 +106,10 @@ function ferias() {
 
 function programarFerias() {
   const inicio = document.getElementById("date-inicio");
-  const fim = document.getElementById("date-im");
+  const fim = document.getElementById("date-fim");
 
   const dataInicio = inicio.value.split('-').reverse().join('/');
-  const dataFim = inicio.value.split('-').reverse().join('/');
+  const dataFim = fim.value.split('-').reverse().join('/');
 
   console.log(dataInicio, dataFim)
 
