@@ -66,31 +66,39 @@ var op2 =document.getElementById("opcao2")
 var op3 =document.getElementById("opcao3")
 var op4 =document.getElementById("opcao4")
 
-funcionario = pegar()
+var matricula = getContratadoMatricula();
+
+$.ajax({
+  url:"http://localhost:8888/contratados/"+matricula,
+  type:"get",
+  contentType: "application/json",
+
+  success: function(response) {
+    console.log(response)
+      setContratadoNome(response.nome)
+      setContratadoMatricula(response.matricula)
+      
+  },
+
+  error: function(response) {
+      validaResponse(response.responseJSON.causa);
+  }
+})
 
 function imagem() {
-  setContratado(funcionario)
   window.location.href = "../home-page/index.html"
 }
   
 function cadastrar() {
-  setContratado(funcionario)
   window.location.href = "../cadastro-func/index.html"
 }
 
 function listagem() {
-  setContratado(funcionario)
   window.location.href = "../listagem-func/index.html"
 }
 
 function beneficios() {
-  setContratado(funcionario)
   window.location.href = "../beneficios-home/index.html"
-}
-
-function setContratado(funcionario) {
-  setContratadoNome(funcionario.nome)
-  setContratadoMatricula(funcionario.matricula)
 }
 
 function contratarBeneficio() {
@@ -156,7 +164,7 @@ function contratarBeneficio() {
         alert("Contratação de benefícios efetivada!")
         setTimeout(() => {
           setContratadoMatricula(matriculaFunc)
-          setContratadoNome(funcionario.nome)
+          setContratadoNome(nome)
           window.location.href = '../beneficios-home/index.html'   
         }, 1000);
     },

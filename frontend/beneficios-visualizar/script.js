@@ -45,41 +45,51 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
-contratado = pegar()
+
+var matricula = getContratadoMatricula();
+
+$.ajax({
+  url:"http://localhost:8888/contratados/"+matricula,
+  type:"get",
+  contentType: "application/json",
+
+  success: function(response) {
+    console.log(response)
+      setContratadoNome(response.nome)
+      setContratadoMatricula(response.matricula)
+      
+  },
+
+  error: function(response) {
+      validaResponse(response.responseJSON.causa);
+  }
+})
+
+var nome = localStorage.getItem("nome")
 
 var nomeFunc = document.getElementById("h1-beneficios")
-var matriculaFunc = localStorage.getItem("matricula")
-nomeFunc.textContent = "Benefícios, " + contratado.nome;
+nomeFunc.textContent = "Benefícios, " + nome;
 
 function imagem() {
-  setContratado(contratado)
   window.location.href = "../home-page/index.html"
 }
 
 function cadastrar() {
-  setContratado(contratado)
   window.location.href = "../cadastro-func/index.html"
 }
 
 function listagem() {
-  setContratado(contratado)
   window.location.href = "../listagem-func/index.html"
 }
 
 function beneficios() {
-  setContratado(contratado)
   window.location.href = "../beneficios-home/index.html"
-}
-
-function setContratado(contratado) {
-  setContratadoNome(contratado.nome)
-  setContratadoMatricula(contratado.matricula)
 }
 
 
 function visualizar() {
   $.ajax({
-      url: "http://localhost:8888/beneficios/"+matriculaFunc,
+      url: "http://localhost:8888/beneficios/"+matricula,
       type: "get",
 
       success: function(response) {

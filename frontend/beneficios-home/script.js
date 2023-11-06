@@ -46,43 +46,48 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
+var matricula = getContratadoMatricula();
+
 var nomeFunc = document.getElementById("nome-func")
 nomeFunc.textContent = localStorage.getItem("nome");
 
-funcionario = pegar()
+$.ajax({
+  url:"http://localhost:8888/contratados/"+matricula,
+  type:"get",
+  contentType: "application/json",
+
+  success: function(response) {
+      console.log(response)
+      setContratadoNome(response.nome)
+      setContratadoMatricula(response.matricula)
+      
+  },
+
+  error: function(response) {
+      validaResponse(response.responseJSON.causa);
+  }
+})
 
 function imagem() {
-  setContratado(funcionario)
   window.location.href = "../home-page/index.html"
 }
 
 function cadastrar() {
-  setContratado(funcionario)
   window.location.href = "../cadastro-func/index.html"
 }
 
 function listagem() {
-  setContratado(funcionario)
   window.location.href = "../listagem-func/index.html"
 }
 
 function beneficios() {
-  setContratado(funcionario)
   window.location.href = "../beneficios-home/index.html"
 }
 
 function contratarBeneficio() {
-  setContratado(funcionario)
   window.location.href = '../beneficios-contratar/index.html' 
 }
 
 function visualizarBeneficios() {
-  setContratado(funcionario)
   window.location.href = '../beneficios-visualizar/index.html' 
-}
-
-
-function setContratado(funcionario) {
-  setContratadoNome(funcionario.nome)
-  setContratadoMatricula(funcionario.matricula)
 }

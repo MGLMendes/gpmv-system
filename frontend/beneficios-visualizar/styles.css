@@ -300,3 +300,8 @@ p{
   cursor: pointer;
   color: white;
 }
+
+#a-contratado:hover, #a-listagem:hover, #a-beneficios:hover {
+  cursor: pointer;
+  color: black;
+}

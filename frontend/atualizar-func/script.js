@@ -46,31 +46,39 @@ if (window.innerWidth < 768) {
 }
 
 
-let funcionario = pegar(); 
+var matricula = getContratadoMatricula();
+
+$.ajax({
+  url:"http://localhost:8888/contratados/"+matricula,
+  type:"get",
+  contentType: "application/json",
+
+  success: function(response) {
+    console.log(response)
+      setContratadoNome(response.nome)
+      setContratadoMatricula(response.matricula)
+      
+  },
+
+  error: function(response) {
+      validaResponse(response.responseJSON.causa);
+  }
+})
 
 function imagem() {
-  setContratado(funcionario)
   window.location.href = "../home-page/index.html"
 }
   
 function cadastrar() {
-  setContratado(funcionario)
   window.location.href = "../cadastro-func/index.html"
 }
 
 function listagem() {
-  setContratado(funcionario)
   window.location.href = "../listagem-func/index.html"
 }
 
 function beneficios() {
-  setContratado(funcionario)
   window.location.href = "../beneficios-home/index.html"
-}
-
-function setContratado(funcionario) {
-  setContratadoNome(funcionario.nome)
-  setContratadoMatricula(funcionario.matricula)
 }
 
 let inputNome = $("#username")

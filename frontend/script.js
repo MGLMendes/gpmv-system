@@ -31,7 +31,7 @@ function atualizarPerfil(perfil) {
     localStorage.setItem("perfil", perfil)
 }
 
-function pegar() {;
+function pegar() {
     return contratado
 }
 
@@ -41,4 +41,12 @@ function setContratadoNome(nome) {
 
 function setContratadoMatricula(matricula) {
     localStorage.setItem("matricula", matricula)
+}
+
+function getContratadoMatricula() {
+    return localStorage.getItem("matricula")
+}
+
+function getContratadoNome() {
+    localStorage.getItem("nome")
 }

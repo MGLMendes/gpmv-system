@@ -262,6 +262,11 @@ body {
   cursor: pointer;
 }
 
+#a-contratado:hover, #a-listagem:hover, #a-beneficios:hover {
+  cursor: pointer;
+  color: black;
+} 
+
 #ola {
   color: white;
   margin-left: 350px;

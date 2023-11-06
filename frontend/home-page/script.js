@@ -46,31 +46,39 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
+var matricula = getContratadoMatricula();
+
+$.ajax({
+  url:"http://localhost:8888/contratados/"+matricula,
+  type:"get",
+  contentType: "application/json",
+
+  success: function(response) {
+    console.log(response)
+      setContratadoNome(response.nome)
+      setContratadoMatricula(response.matricula)
+      
+  },
+
+  error: function(response) {
+      validaResponse(response.responseJSON.causa);
+  }
+})
+
 
 var olaNomeFunc = document.getElementById("ola")
 
 olaNomeFunc.textContent = "Olá, " + localStorage.getItem("nome")
 
-contratado = pegar()
-
 function cadastrar() {
-  setContratado(contratado)
   window.location.href = "../cadastro-func/index.html"
 }
 
 function listagem() {
-  setContratado(contratado)
   window.location.href = "../listagem-func/index.html"
 }
 
 function beneficios() {
-  setContratado(contratado)
   window.location.href = "../beneficios-home/index.html"
-}
-
-
-function setContratado(contratado) {
-  setContratadoNome(contratado.nome)
-  setContratadoMatricula(contratado.matricula)
 }
 
