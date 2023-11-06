@@ -79,7 +79,7 @@ $.ajax({
   },
 
   error: function(response) {
-      validaResponse(response.responseJSON.causa);
+      alert("ERROR")
   }
 })
 
@@ -105,18 +105,31 @@ function ferias() {
 
 
 function programarFerias() {
+  const inicio = document.getElementById("date-inicio");
+  const fim = document.getElementById("date-im");
+
+  const dataInicio = inicio.value.split('-').reverse().join('/');
+  const dataFim = inicio.value.split('-').reverse().join('/');
+
+  console.log(dataInicio, dataFim)
+
+  const ferias = JSON.stringify({
+    "inicio":dataInicio,
+    "fim":dataFim
+  })
+
+  console.log(ferias)
+
     $.ajax({
-      url: "http://localhost:8888/ferias/programar"+matriculaFunc,
+      url: "http://localhost:8888/ferias/programar/"+matricula,
       type: "post",
-      data: beneficios,
+      data: ferias,
       contentType: "application/json",
 
       success: function(response) {
-          alert("Contratação de benefícios efetivada!")
+          alert("Férias programada com sucesso, você pode visualiza-lás em Actions -> Férias -> Visualizar Férias")
           setTimeout(() => {
-            setContratadoMatricula(matriculaFunc)
-            setContratadoNome(nome)
-            window.location.href = '../beneficios-home/index.html'   
+            window.location.href = '../ferias-home/index.html'   
           }, 1000);
       },
 

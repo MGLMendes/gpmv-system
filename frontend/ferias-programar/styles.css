@@ -345,7 +345,7 @@ body {
 
 #button {
   margin-top: 10px;
-  margin-left: 380px;
+  margin-left: 280px;
   background-color: #008CBA;
   border: none;
   border-radius: 20px;
@@ -364,12 +364,20 @@ body {
   cursor: pointer;
 }
 
-#a-contratado, #a-listagem, #a-beneficios {
+#a-actions {
   cursor: pointer;
   color: white;
 }
 
-#a-contratado:hover, #a-listagem:hover, #a-beneficios:hover {
+#a-actions:hover {
   cursor: pointer;
   color: black;
+}
+
+.data {
+  margin-left: 350px;
+}
+
+h3 {
+  margin-left: 350px;
 }

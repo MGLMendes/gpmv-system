@@ -11,6 +11,7 @@ import com.softwareproduct.gpmvsystem.domain.service.ContratadoService;
 import com.softwareproduct.gpmvsystem.domain.service.FeriasService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/ferias")
 @RequiredArgsConstructor
+@CrossOrigin(maxAge = 20)
 public class FeriasController {
 
     private final FeriasService feriasService;
