@@ -46,12 +46,27 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
-contratado = pegar()
+var matricula = getContratadoMatricula();
+
+$.ajax({
+  url:"http://localhost:8888/contratados/"+matricula,
+  type:"get",
+  contentType: "application/json",
+
+  success: function(response) {
+    console.log(response)
+      setContratadoNome(response.nome)
+      setContratadoMatricula(response.matricula)
+      
+  },
+
+  error: function(response) {
+      validaResponse(response.responseJSON.causa);
+  }
+})
 
 var olaNomeFunc = document.getElementById("ola")
 
 olaNomeFunc.textContent = "Bem vindo, " + localStorage.getItem("nome")
 
-setContratadoNome(contratado.nome)
-setContratadoMatricula(contratado.matricula)
 

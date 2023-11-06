@@ -67,8 +67,24 @@ var op2 =document.getElementById("opcao2")
 var op3 =document.getElementById("opcao3")
 var op4 =document.getElementById("opcao4")
 
-contratado = pegar()
+var matricula = getContratadoMatricula();
 
+$.ajax({
+  url:"http://localhost:8888/contratados/"+matricula,
+  type:"get",
+  contentType: "application/json",
+
+  success: function(response) {
+    console.log(response)
+      setContratadoNome(response.nome)
+      setContratadoMatricula(response.matricula)
+      
+  },
+
+  error: function(response) {
+      validaResponse(response.responseJSON.causa);
+  }
+})
 function contratarBeneficio() {
 
   console.log(op1.checked)
