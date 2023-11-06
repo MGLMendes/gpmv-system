@@ -1,6 +1,6 @@
 package com.softwareproduct.gpmvsystem.domain.service.impl;
 
-import com.softwareproduct.gpmvsystem.api.input.ContratadoAttInput;
+
 import com.softwareproduct.gpmvsystem.core.exceptions.model.ContratadoException;
 import com.softwareproduct.gpmvsystem.domain.model.Beneficio;
 import com.softwareproduct.gpmvsystem.domain.model.Contratado;

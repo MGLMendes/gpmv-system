@@ -46,7 +46,7 @@ public class FeriasController {
     }
 
 
-    @GetMapping("/visualizar/{matricula}")
+    @GetMapping("/{matricula}")
     public ResponseEntity<FeriasDTO> visualizarFerias(@PathVariable String matricula) {
         Contratado contratado = contratadoService.contratadoPorMatricula(matricula);
 

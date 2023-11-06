@@ -49,6 +49,6 @@ public class FeriasServiceImpl implements FeriasService {
         if (feriasJaContratadas.isPresent()) {
             return feriasJaContratadas.get();
         }
-        throw new FeriasInvalidasException("As férias do " + contratado.getNome() + " ainda não foi programada");
+        throw new FeriasInvalidasException( contratado.getNome() + " suas férias não foram programadas");
     }
 }
