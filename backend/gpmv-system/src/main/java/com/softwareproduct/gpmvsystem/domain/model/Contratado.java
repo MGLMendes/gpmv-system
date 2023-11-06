@@ -45,4 +45,7 @@ public class Contratado {
 
     @OneToMany(mappedBy = "contratado")
     private List<Beneficio> beneficios;
+
+    @OneToOne(mappedBy = "contratado")
+    private Ferias ferias;
 }

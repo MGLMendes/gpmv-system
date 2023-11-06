@@ -86,6 +86,10 @@ function beneficios() {
   window.location.href = "../beneficios-home/index.html"
 }
 
+function ferias() {
+  window.location.href = "../ferias-home/index.html"
+}
+
 
 function visualizar() {
   $.ajax({

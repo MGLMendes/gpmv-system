@@ -1,6 +1,7 @@
 package com.softwareproduct.gpmvsystem.domain.service.impl;
 
 import com.softwareproduct.gpmvsystem.api.input.ContratadoAttInput;
+import com.softwareproduct.gpmvsystem.core.exceptions.model.ContratadoException;
 import com.softwareproduct.gpmvsystem.domain.model.Beneficio;
 import com.softwareproduct.gpmvsystem.domain.model.Contratado;
 import com.softwareproduct.gpmvsystem.domain.model.Usuario;
@@ -53,7 +54,7 @@ public class ContratadoServiceImpl implements ContratadoService {
         if(contratado != null ) {
             return contratado;
         }
-        throw new IllegalArgumentException("Não existe contratado de ID " + matricula);
+        throw new ContratadoException("Não existe contratado de ID " + matricula);
     }
 
     @Override

@@ -218,6 +218,10 @@ function beneficios() {
   window.location.href = "../beneficios-home/index.html"
 }
 
+function ferias() {
+  window.location.href = "../ferias-home/index.html"
+}
+
 function admitirContratado() {
   const nome = username.value;
   const nomeMae = mae.value;

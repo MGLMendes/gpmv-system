@@ -81,6 +81,10 @@ function beneficios() {
   window.location.href = "../beneficios-home/index.html"
 }
 
+function ferias() {
+  window.location.href = "../ferias-home/index.html"
+}
+
 let inputNome = $("#username")
 let inputMae = $("#mae")
 let inputPai = $("#pai")
