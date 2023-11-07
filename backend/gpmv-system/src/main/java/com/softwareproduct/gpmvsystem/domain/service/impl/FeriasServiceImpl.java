@@ -39,7 +39,7 @@ public class FeriasServiceImpl implements FeriasService {
         Optional<Ferias> feriasJaContratadas = feriasRepository.findByContratadoMatricula(contratado.getMatricula());
 
         if (feriasJaContratadas.isPresent()) {
-            throw new FeriasInvalidasException("Contratado já programou suas férias!");
+            throw new FeriasInvalidasException(contratado.getNome()+ ", você já programou suas férias");
         }
 
         ferias.setContratado(contratado);

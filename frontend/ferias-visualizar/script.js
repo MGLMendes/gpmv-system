@@ -67,8 +67,6 @@ $.ajax({
 
 var nome = localStorage.getItem("nome")
 
-var nomeFunc = document.getElementById("h1-ferias")
-nomeFunc.textContent = "Férias, " + nome;
 
 
 

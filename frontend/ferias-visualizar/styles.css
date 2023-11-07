@@ -306,7 +306,7 @@ p{
   color: black;
 }
 
-h2 {
+h2, h1 {
   color: white;
   margin-left: 350px;
 }
