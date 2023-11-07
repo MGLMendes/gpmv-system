@@ -357,5 +357,6 @@ body {
 
   #a-contratado, #a-listagem, #a-beneficios {
     cursor: pointer;
+    color: white;
   }
   

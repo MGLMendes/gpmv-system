@@ -85,6 +85,8 @@ function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
 
+funcionario = pegar()
+
 let inputNome = $("#username")
 let inputMae = $("#mae")
 let inputPai = $("#pai")
