@@ -99,7 +99,7 @@ $.ajax({
   type: "get",
 
   success: function(response) {
-    h2Ferias.textContent = "Parabéns " + nome + ", suas férias estão marcadas para começar " + response.inicio + " e terminar dia " + response.fim
+    h2Ferias.textContent = "Parabéns " + nome + ", suas férias estão marcadas para começar dia " + response.inicio + " e terminar dia " + response.fim
   },
 
   error: function(error) {

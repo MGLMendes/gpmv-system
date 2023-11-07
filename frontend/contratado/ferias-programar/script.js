@@ -103,6 +103,7 @@ function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
 
+var msg = document.getElementById("mensagem")
 
 function programarFerias() {
   const inicio = document.getElementById("date-inicio");
@@ -134,7 +135,8 @@ function programarFerias() {
       },
 
       error: function(error) {
-          alert("Não foi possível consultar os dados, provavelmente servidor não está de pé")
+        console.log(error.responseJSON)
+          msg.textContent = error.responseJSON.message
       }
   });
 }

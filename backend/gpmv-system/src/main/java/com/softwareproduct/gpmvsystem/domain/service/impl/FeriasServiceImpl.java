@@ -22,6 +22,10 @@ public class FeriasServiceImpl implements FeriasService {
     @Override
     public Ferias programarFerias(Contratado contratado, Ferias ferias) {
 
+        if (ferias == null) {
+            throw new FeriasInvalidasException("As datas não podem estar vazias");
+        }
+
         if (ferias.getFim().isBefore(ferias.getInicio())) {
             throw new FeriasInvalidasException("A data de início deve ser antes da data de fim!");
         }
