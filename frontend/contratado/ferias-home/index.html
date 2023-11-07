@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
-    <title>Visualizar Beneficios</title>
+    <title>Ferias Home Page</title>
 </head>
-<body style="background-color: #333;">
+<body>
         <!-- navbar -->
         <nav class="navbar">
             <div class="logo_item">
               <i class="bx bx-menu" id="sidebarOpen"></i>
-              <img src="images/logo.png" alt=""></i><a id="logo-img" href="../home-page/index.html">GPMV SYSTEM</a>
+              <img src="images/logo.png" alt=""></i><a id="logo-img" onclick="imagem()">GPMV SYSTEM</a>
             </div>
       
             <div class="search_bar">
@@ -45,8 +44,9 @@
                   </div>
       
                   <ul class="menu_items submenu">
-                    <a href="../listagem-func/index.html" class="nav_link sublink">Listagem</a>
-                    <a href="../beneficios-home/index.html" class="nav_link sublink">Benefícios</a>
+                    <a onclick="cadastrar()" id="a-contratado" class="nav_link sublink">Cadastro</a>
+                    <a onclick="listagem()" id="a-listagem" class="nav_link sublink">Listagem</a>
+                    <a onclick="beneficios()" id="a-beneficios" class="nav_link sublink">Benefícios</a>
                     <a onclick="ferias()" id="a-beneficios" class="nav_link sublink">Férias</a>
                   </ul>
                 </li>
@@ -56,36 +56,28 @@
               <!-- Sidebar Open / Close -->
               <div class="bottom_content">
                 <ul class="bottom collapse_sidebar">
-                  <a href="../../login/login.html">Logout</a>
+                  <a href="../login/login.html">Logout</a>
                 </ul>
               </div>
             </div>
           </nav>
 
-          <h1 id="h1-beneficios"></h1>
-
-          <div class="container">
-            <button id="btn-consultar" onclick="visualizar()" class="btn btn-primary">Visualizar Benefícios</button>
+          <div id="div-nome">
+            <h1>Olá,<p id="nome-func">Miguel</p></h1>
+            <br>
+            <h2>O que deseja fazer? </h2>
+            <br>
+            <br>
+            <button id="programarFerias" onclick="programarFerias()">Programar Férias</button>
+            <br>
+            <button id="visualizarFerias" onclick="visualizarFerias()">Visualizar Férias</button>
           </div>
+            
           
-          <div class="container">
-            <div class="row">
-              <table id="tabela" class="table table-striped table-hover">
-                  <thead class="thead-dark">
-                      <th>Benefício</th>
-                      <th>Preço</th>
-                      <th>Data Contratação</th>
-                  </thead>
-                  <tbody class="tbody">
-                      
-                  </tbody>
-              </table>
-            </div>
-          </div>
           
 
-          <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-          <script src="../../script.js"></script>
-          <script src="script.js"></script>
+          <script src="../script.js"></script>   
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="script.js"></script>
 </body>
 </html>

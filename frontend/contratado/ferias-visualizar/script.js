@@ -7,7 +7,6 @@ const sidebarClose = document.querySelector(".collapse_sidebar");
 const sidebarExpand = document.querySelector(".expand_sidebar");
 sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
 
-
 sidebar.addEventListener("mouseenter", () => {
   if (sidebar.classList.contains("hoverable")) {
     sidebar.classList.remove("close");
@@ -46,6 +45,7 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
+
 var matricula = getContratadoMatricula();
 
 $.ajax({
@@ -65,10 +65,45 @@ $.ajax({
   }
 })
 
-var olaNomeFunc = document.getElementById("ola")
+var nome = localStorage.getItem("nome")
 
-olaNomeFunc.textContent = "Bem vindo, " + localStorage.getItem("nome")
+var nomeFunc = document.getElementById("h1-ferias")
+nomeFunc.textContent = "Férias, " + nome;
+
+
+
+var h2Ferias = document.getElementById("h2-ferias")
+
+function imagem() {
+  window.location.href = "../home-page/index.html"
+}
+
+function cadastrar() {
+  window.location.href = "../cadastro-func/index.html"
+}
+
+function listagem() {
+  window.location.href = "../listagem-func/index.html"
+}
+
+function beneficios() {
+  window.location.href = "../beneficios-home/index.html"
+}
 
 function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
+
+$.ajax({
+  url: "http://localhost:8888/ferias/"+matricula,
+  type: "get",
+
+  success: function(response) {
+    h2Ferias.textContent = "Parabéns " + nome + ", suas férias estão marcadas para começar " + response.inicio + " e terminar dia " + response.fim
+  },
+
+  error: function(error) {
+    h2Ferias.textContent = error.responseJSON.message
+  }
+});
+

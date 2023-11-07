@@ -120,3 +120,7 @@ function editar() {
     }
 });
 }
+
+function ferias() {
+  window.location.href = "../ferias-home/index.html"
+}

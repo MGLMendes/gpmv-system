@@ -48,13 +48,16 @@ if (window.innerWidth < 768) {
 
 var matricula = getContratadoMatricula();
 
+var nomeFunc = document.getElementById("nome-func")
+nomeFunc.textContent = localStorage.getItem("nome");
+
 $.ajax({
   url:"http://localhost:8888/contratados/"+matricula,
   type:"get",
   contentType: "application/json",
 
   success: function(response) {
-    console.log(response)
+      console.log(response)
       setContratadoNome(response.nome)
       setContratadoMatricula(response.matricula)
       
@@ -65,10 +68,30 @@ $.ajax({
   }
 })
 
-var olaNomeFunc = document.getElementById("ola")
+function imagem() {
+  window.location.href = "../home-page/index.html"
+}
 
-olaNomeFunc.textContent = "Bem vindo, " + localStorage.getItem("nome")
+function cadastrar() {
+  window.location.href = "../cadastro-func/index.html"
+}
+
+function listagem() {
+  window.location.href = "../listagem-func/index.html"
+}
+
+function beneficios() {
+  window.location.href = "../beneficios-home/index.html"
+}
 
 function ferias() {
   window.location.href = "../ferias-home/index.html"
+}
+
+function programarFerias() {
+  window.location.href = '../ferias-programar/index.html' 
+}
+
+function visualizarFerias() {
+  window.location.href = '../ferias-visualizar/index.html' 
 }

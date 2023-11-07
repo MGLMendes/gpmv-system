@@ -45,6 +45,11 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
+
+function ferias() {
+  window.location.href = "../ferias-home/index.html"
+}
+
 var nomeFunc = document.getElementById("h1-beneficios")
 var matriculaFunc = localStorage.getItem("matricula")
 nomeFunc.textContent = "Benefícios, " + localStorage.getItem("nome");

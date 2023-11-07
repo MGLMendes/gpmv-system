@@ -7,8 +7,6 @@ const sidebarClose = document.querySelector(".collapse_sidebar");
 const sidebarExpand = document.querySelector(".expand_sidebar");
 sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
 
-
-
 sidebar.addEventListener("mouseenter", () => {
   if (sidebar.classList.contains("hoverable")) {
     sidebar.classList.remove("close");
@@ -48,7 +46,6 @@ if (window.innerWidth < 768) {
 }
 
 var matriculaFunc = localStorage.getItem("matricula")
-console.log(matriculaFunc)
 
 var bAlimentacao = document.getElementById("alimentacao")
 var precoAlimentacao = document.getElementById("preco-alimentacao")
@@ -82,89 +79,63 @@ $.ajax({
   },
 
   error: function(response) {
-      validaResponse(response.responseJSON.causa);
+      alert("ERROR")
   }
 })
-function contratarBeneficio() {
 
-  console.log(op1.checked)
-
-  if(op1.checked) {
-    bAlimentacao = bAlimentacao.textContent
-    precoAlimentacao = precoAlimentacao.textContent
-  } else {
-    bAlimentacao = null
-    precoAlimentacao = null
-  }
-
-  if(op2.checked) {
-    bRefeicao = bRefeicao.textContent
-    precoRefeicao = precoRefeicao.textContent
-  } else {
-    bRefeicao = null
-    precoRefeicao = null
-  }
-
-  if(op3.checked) {
-    bVt = bVt.textContent
-    precoVt = precoVt.textContent
-  } else {
-    bVt = null
-    precoVt = null
-  }
-
-  if(op4.checked) {
-    bGp = bGp.textContent
-    precoGp = precoGp.textContent
-  } else {
-    bGp = null
-    precoGp = null
-  }
+function imagem() {
+  window.location.href = "../home-page/index.html"
+}
   
-  const beneficios = JSON.stringify([
-    {
-      "beneficio":bAlimentacao,
-      "preco":precoAlimentacao
-    },
-    {
-      "beneficio":bRefeicao,
-      "preco":precoRefeicao
-    },
-    {
-      "beneficio":bVt,
-      "preco":precoVt
-    },
-    {
-      "beneficio":bGp,
-      "preco":precoGp
-    }
-  ])
+function cadastrar() {
+  window.location.href = "../cadastro-func/index.html"
+}
 
-  $.ajax({
-    url: "http://localhost:8888/beneficios/"+matriculaFunc+"/contratar",
-    type: "post",
-    data: beneficios,
-    contentType: "application/json",
+function listagem() {
+  window.location.href = "../listagem-func/index.html"
+}
 
-    success: function(response) {
-        alert("Contratação de benefícios efetivada!")
-        setTimeout(() => {
-          setContratadoNome(contratado.nome)
-          setContratadoMatricula(matriculaFunc)
-          window.location.href = '../beneficios-home/index.html'   
-        }, 1000);
-    },
-
-    error: function(error) {
-        alert("Não foi possível consultar os dados, provavelmente servidor não está de pé")
-    }
-});
-
-
-  console.log(beneficios)
-
+function beneficios() {
+  window.location.href = "../beneficios-home/index.html"
 }
 
 function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
+
+
+function programarFerias() {
+  const inicio = document.getElementById("date-inicio");
+  const fim = document.getElementById("date-fim");
+
+  const dataInicio = inicio.value.split('-').reverse().join('/');
+  const dataFim = fim.value.split('-').reverse().join('/');
+
+  console.log(dataInicio, dataFim)
+
+  const ferias = JSON.stringify({
+    "inicio":dataInicio,
+    "fim":dataFim
+  })
+
+  console.log(ferias)
+
+    $.ajax({
+      url: "http://localhost:8888/ferias/programar/"+matricula,
+      type: "post",
+      data: ferias,
+      contentType: "application/json",
+
+      success: function(response) {
+          alert("Férias programada com sucesso, você pode visualiza-lás em Actions -> Férias -> Visualizar Férias")
+          setTimeout(() => {
+            window.location.href = '../ferias-home/index.html'   
+          }, 1000);
+      },
+
+      error: function(error) {
+          alert("Não foi possível consultar os dados, provavelmente servidor não está de pé")
+      }
+  });
+}
+

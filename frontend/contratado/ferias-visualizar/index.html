@@ -13,7 +13,7 @@
         <nav class="navbar">
             <div class="logo_item">
               <i class="bx bx-menu" id="sidebarOpen"></i>
-              <img src="images/logo.png" alt=""></i><a id="logo-img" href="../home-page/index.html">GPMV SYSTEM</a>
+              <img src="images/logo.png" alt=""></i><a id="logo-img" onclick="imagem()">GPMV SYSTEM</a>
             </div>
       
             <div class="search_bar">
@@ -45,8 +45,9 @@
                   </div>
       
                   <ul class="menu_items submenu">
-                    <a href="../listagem-func/index.html" class="nav_link sublink">Listagem</a>
-                    <a href="../beneficios-home/index.html" class="nav_link sublink">Benefícios</a>
+                    <a onclick="cadastrar()" id="a-contratado" class="nav_link sublink">Cadastro</a>
+                    <a onclick="listagem()" id="a-listagem" class="nav_link sublink">Listagem</a>
+                    <a onclick="beneficios()" id="a-beneficios" class="nav_link sublink">Benefícios</a>
                     <a onclick="ferias()" id="a-beneficios" class="nav_link sublink">Férias</a>
                   </ul>
                 </li>
@@ -56,36 +57,20 @@
               <!-- Sidebar Open / Close -->
               <div class="bottom_content">
                 <ul class="bottom collapse_sidebar">
-                  <a href="../../login/login.html">Logout</a>
+                  <a href="../login/login.html">Logout</a>
                 </ul>
               </div>
             </div>
           </nav>
 
-          <h1 id="h1-beneficios"></h1>
+          <h1 id="h1-ferias"></h1>
+            
+          <h2 id="h2-ferias"></h2>
 
-          <div class="container">
-            <button id="btn-consultar" onclick="visualizar()" class="btn btn-primary">Visualizar Benefícios</button>
-          </div>
-          
-          <div class="container">
-            <div class="row">
-              <table id="tabela" class="table table-striped table-hover">
-                  <thead class="thead-dark">
-                      <th>Benefício</th>
-                      <th>Preço</th>
-                      <th>Data Contratação</th>
-                  </thead>
-                  <tbody class="tbody">
-                      
-                  </tbody>
-              </table>
-            </div>
-          </div>
           
 
           <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-          <script src="../../script.js"></script>
+          <script src="../script.js"></script>
           <script src="script.js"></script>
 </body>
 </html>

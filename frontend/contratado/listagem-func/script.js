@@ -18,6 +18,22 @@ $.ajax({
   }
 })
 
+function imagem() {
+  window.location.href = "../home-page/index.html"
+}
+
+function cadastrar() {
+  window.location.href = "../cadastro-func/index.html"
+}
+
+function listagem() {
+  window.location.href = "../listagem-func/index.html"
+}
+
+function beneficios() {
+  window.location.href = "../beneficios-home/index.html"
+}
+
 let perfilUser = "";
 
 function consultar() {
