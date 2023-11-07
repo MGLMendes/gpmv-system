@@ -33,7 +33,7 @@ public class FeriasServiceImpl implements FeriasService {
         System.out.println(ferias.getInicio().plusDays(30));
 
         if (ferias.getFim().isAfter(ferias.getInicio().plusDays(30))) {
-            throw new FeriasInvalidasException("O período de férios deve ser de no máximo 30 dias");
+            throw new FeriasInvalidasException("O período de férias deve ser de no máximo 30 dias");
         }
 
         Optional<Ferias> feriasJaContratadas = feriasRepository.findByContratadoMatricula(contratado.getMatricula());
