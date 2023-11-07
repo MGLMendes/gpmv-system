@@ -128,10 +128,7 @@ function programarFerias() {
       contentType: "application/json",
 
       success: function(response) {
-          alert("Férias programada com sucesso, você pode visualiza-lás em Actions -> Férias -> Visualizar Férias")
-          setTimeout(() => {
-            window.location.href = '../ferias-home/index.html'   
-          }, 1000);
+        msg.textContent = "Férias programada com sucesso, você pode visualiza-lás em Actions -> Férias -> Visualizar Férias"
       },
 
       error: function(error) {

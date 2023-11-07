@@ -52,7 +52,9 @@ function ferias() {
 
 var nomeFunc = document.getElementById("h1-beneficios")
 var matriculaFunc = localStorage.getItem("matricula")
-nomeFunc.textContent = "Benefícios, " + localStorage.getItem("nome");
+
+var nome = localStorage.getItem("nome");
+nomeFunc.textContent = "Benefícios, " + nome
 
 var matricula = getContratadoMatricula();
 
@@ -73,6 +75,7 @@ $.ajax({
   }
 })
 
+var msg = document.getElementById("mensagem")
 
 function visualizar() {
   $.ajax({
@@ -81,7 +84,12 @@ function visualizar() {
 
       success: function(response) {
         console.log(response)
-          preencherTabela(response);
+
+        if (response.length === 0) {
+            msg.textContent = nome + ", você ainda não contratou nenhum benefício"
+        }
+
+        preencherTabela(response);
       },
 
       error: function(error) {

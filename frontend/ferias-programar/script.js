@@ -103,6 +103,7 @@ function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
 
+var msg = document.getElementById("mensagem")
 
 function programarFerias() {
   const inicio = document.getElementById("date-inicio");
@@ -127,14 +128,12 @@ function programarFerias() {
       contentType: "application/json",
 
       success: function(response) {
-          alert("Férias programada com sucesso, você pode visualiza-lás em Actions -> Férias -> Visualizar Férias")
-          setTimeout(() => {
-            window.location.href = '../ferias-home/index.html'   
-          }, 1000);
+        msg.textContent = "Férias programada com sucesso, você pode visualiza-lás em Actions -> Férias -> Visualizar Férias"
       },
 
       error: function(error) {
-          alert("Não foi possível consultar os dados, provavelmente servidor não está de pé")
+        console.log(error.responseJSON)
+          msg.textContent = error.responseJSON.message
       }
   });
 }
