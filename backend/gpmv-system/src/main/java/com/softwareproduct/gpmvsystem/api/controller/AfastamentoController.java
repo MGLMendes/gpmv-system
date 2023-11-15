@@ -37,5 +37,12 @@ public class AfastamentoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(afastamentoAssamble.entityToDTO(afastamentoResponse));
     }
 
+    @GetMapping("/{matricula}")
+    public ResponseEntity<AfastamentoDTO> buscarAfastamento(@PathVariable String matricula) {
+        Afastamento afastamento = afastamentoService.buscarAfastamentoPorContratadoMatricula(matricula);
+
+        return ResponseEntity.ok(afastamentoAssamble.entityToDTO(afastamento));
+    }
+
 
 }

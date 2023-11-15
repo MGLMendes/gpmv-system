@@ -37,4 +37,24 @@ public class AfastamentoServiceImpl implements AfastamentoService {
             ));
         }
     }
+
+    @Override
+    public Afastamento buscarAfastamentoPorContratadoMatricula(String matricula) {
+        Contratado contratado = contratadoService.contratadoPorMatricula(matricula);
+
+        if (contratado != null) {
+            Afastamento afastamento = contratado.getAfastamento();
+
+            if (afastamento != null) {
+                return afastamento;
+            } else {
+                throw new AfastamentoException(String.format(
+                        "%s, você não programou nenhum afastamento", contratado.getNome()
+                ));
+            }
+        }
+        throw new AfastamentoException(String.format(
+                "Não foi possível achar contratado"
+        ));
+    }
 }

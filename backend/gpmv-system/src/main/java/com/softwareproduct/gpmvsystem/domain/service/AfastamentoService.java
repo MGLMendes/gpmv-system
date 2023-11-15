@@ -8,4 +8,6 @@ public interface AfastamentoService {
 
     Afastamento programarAfastamento(String contratadoMatricula, Afastamento Afastamento);
 
+    Afastamento buscarAfastamentoPorContratadoMatricula(String matricula);
+
 }
