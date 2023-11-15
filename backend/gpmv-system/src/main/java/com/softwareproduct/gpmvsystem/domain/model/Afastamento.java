@@ -1,5 +1,6 @@
 package com.softwareproduct.gpmvsystem.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,8 +29,10 @@ public class Afastamento {
 
     private String descricao;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate inicio;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate fim;
 
     @OneToOne

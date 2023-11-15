@@ -48,7 +48,7 @@ public class ContratadoController {
     }
 
     @GetMapping("{matricula}")
-    public ResponseEntity<ContratadoDTO> pegarContratadoPorId(@PathVariable String matricula) {
+    public ResponseEntity<ContratadoDTO> pegarContratadoPorMatricula(@PathVariable String matricula) {
         return  ResponseEntity.ok(assamble.entityToDTO(contratadoService.contratadoPorMatricula(matricula)));
     }
 

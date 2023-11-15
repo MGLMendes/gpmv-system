@@ -33,7 +33,7 @@ public class ContratadoServiceImpl implements ContratadoService {
         Contratado contratado = repository.findByEmail(contratadoInput.getEmail());
 
         if (contratado != null) {
-            throw new IllegalArgumentException("Contratado já admitido");
+            throw new ContratadoException("Contratado já admitido");
         }
 
         var numero = new Random().nextInt(999999 - 100000 + 1) + 100000;

@@ -1,6 +1,7 @@
 package com.softwareproduct.gpmvsystem.core.exceptions.handler;
 
 import com.softwareproduct.gpmvsystem.core.exceptions.dto.ErrorResponseDTO;
+import com.softwareproduct.gpmvsystem.core.exceptions.model.AfastamentoException;
 import com.softwareproduct.gpmvsystem.core.exceptions.model.ContratadoException;
 import com.softwareproduct.gpmvsystem.core.exceptions.model.FeriasInvalidasException;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +35,18 @@ public class ApiExceptionHandler {
                 .timestamp(OffsetDateTime.now())
                 .title("Erro contratado!")
                 .detail("Error ao contratar funcionário!")
+                .message(e.getMessage())
+                .build();
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
+    @ExceptionHandler(AfastamentoException.class)
+    public ResponseEntity<ErrorResponseDTO> afastamentoErrorExceptionHandler(AfastamentoException e) {
+        ErrorResponseDTO error = ErrorResponseDTO.builder()
+                .timestamp(OffsetDateTime.now())
+                .title("Erro afastamento!")
+                .detail("Error ao programar afastamento!")
                 .message(e.getMessage())
                 .build();
 
