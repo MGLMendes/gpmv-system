@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/afastamento")
 @RequiredArgsConstructor
+@CrossOrigin(maxAge = 20)
 public class AfastamentoController {
 
     private final AfastamentoService afastamentoService;

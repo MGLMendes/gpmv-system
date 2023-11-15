@@ -1,6 +1,7 @@
 package com.softwareproduct.gpmvsystem.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,11 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class AfastamentoDTO {
+
+    @JsonProperty("matricula")
+    private String contratadoMatricula;
+    @JsonProperty("nome")
+    private String contratadoNome;
 
     private String motivo;
 
