@@ -1,7 +1,8 @@
 package com.softwareproduct.gpmvsystem.api.disassembler;
 
+import com.softwareproduct.gpmvsystem.api.input.AfastamentoInput;
 import com.softwareproduct.gpmvsystem.api.input.ContratadoAttInput;
-import com.softwareproduct.gpmvsystem.api.input.FeriasInput;
+import com.softwareproduct.gpmvsystem.domain.model.Afastamento;
 import com.softwareproduct.gpmvsystem.domain.model.Contratado;
 import com.softwareproduct.gpmvsystem.domain.model.Ferias;
 import lombok.RequiredArgsConstructor;
@@ -10,15 +11,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class FeriasInputDisassembler {
+public class AfastamentoInputDisassembler {
 
     private final ModelMapper modelMapper;
 
-    public Ferias inputToEntity(FeriasInput feriasInput) {
-        return modelMapper.map(feriasInput, Ferias.class);
-    }
-
-    public void copyInputToEntity(Contratado contratado, ContratadoAttInput contratadoAttInput) {
-        modelMapper.map(contratadoAttInput, contratado);
+    public Afastamento inputToEntity(AfastamentoInput feriasInput) {
+        return modelMapper.map(feriasInput, Afastamento.class);
     }
 }

@@ -1,6 +1,5 @@
 package com.softwareproduct.gpmvsystem.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,20 +16,23 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Beneficio {
+public class Afastamento {
+
 
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String beneficio;
 
-    private Double preco;
+    private String motivo;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dataContratacao = LocalDate.now();
+    private String descricao;
 
-    @ManyToOne
-    @JoinColumn(name = "contratado_id")
+    private LocalDate inicio;
+
+    private LocalDate fim;
+
+    @OneToOne
+    @JoinColumn(name = "contratado_id", referencedColumnName = "id")
     private Contratado contratado;
 }

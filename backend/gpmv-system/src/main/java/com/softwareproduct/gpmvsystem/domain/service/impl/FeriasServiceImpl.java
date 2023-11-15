@@ -8,9 +8,7 @@ import com.softwareproduct.gpmvsystem.domain.service.FeriasService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor

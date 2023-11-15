@@ -1,6 +1,5 @@
 package com.softwareproduct.gpmvsystem.api.controller;
 
-import com.softwareproduct.gpmvsystem.api.assamble.ContratadoAssamble;
 import com.softwareproduct.gpmvsystem.api.assamble.FeriasAssamble;
 import com.softwareproduct.gpmvsystem.api.disassembler.FeriasInputDisassembler;
 import com.softwareproduct.gpmvsystem.api.dto.FeriasDTO;

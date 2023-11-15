@@ -48,4 +48,7 @@ public class Contratado {
 
     @OneToOne(mappedBy = "contratado")
     private Ferias ferias;
+
+    @OneToOne(mappedBy = "contratado")
+    private Afastamento afastamento;
 }

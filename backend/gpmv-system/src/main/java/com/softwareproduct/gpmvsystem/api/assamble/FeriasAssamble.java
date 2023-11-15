@@ -1,9 +1,6 @@
 package com.softwareproduct.gpmvsystem.api.assamble;
 
-import com.softwareproduct.gpmvsystem.api.dto.ContratadoDTO;
-import com.softwareproduct.gpmvsystem.api.dto.ContratadoResumoDTO;
 import com.softwareproduct.gpmvsystem.api.dto.FeriasDTO;
-import com.softwareproduct.gpmvsystem.domain.model.Contratado;
 import com.softwareproduct.gpmvsystem.domain.model.Ferias;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

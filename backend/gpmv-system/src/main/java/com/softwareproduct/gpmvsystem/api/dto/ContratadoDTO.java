@@ -1,14 +1,9 @@
 package com.softwareproduct.gpmvsystem.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.softwareproduct.gpmvsystem.api.input.CargosDTO;
-import com.softwareproduct.gpmvsystem.api.input.EnderecoDTO;
-import com.softwareproduct.gpmvsystem.domain.model.Endereco;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Embedded;
 import java.time.LocalDate;
 
 @Getter
