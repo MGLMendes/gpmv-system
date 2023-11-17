@@ -101,3 +101,8 @@ function ferias() {
 function afastamento() {
   window.location.href = "../afastamento/index.html"
 }
+
+
+function programarAfastamento() {
+  window.location.href = "../afastamento-programar/index.html"
+}
