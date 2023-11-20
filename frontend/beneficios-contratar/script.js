@@ -105,6 +105,10 @@ function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
 
+function afastamento() {
+  window.location.href = "../afastamento/index.html"
+}
+
 function contratarBeneficio() {
 
   if(op1.checked) {

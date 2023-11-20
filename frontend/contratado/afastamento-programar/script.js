@@ -113,8 +113,10 @@ function programarAfastamento() {
       contentType: "application/json",
 
       success: function(response) {
-        msg.textContent =  "Você programou seu atestado com sucesso!"
-        window.href.location = "../afastamento/index.html"
+        msg.textContent =  "Você programou seu afastamento com sucesso!"
+        setTimeout(() => {
+          window.href.location = "../afastamento/index.html"  
+        }, 1000);
       },
 
       error: function(error) {

@@ -88,6 +88,10 @@ function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
 
+function afastamento() {
+  window.location.href = "../afastamento/index.html"
+}
+
 function contratarBeneficio() {
   window.location.href = '../beneficios-contratar/index.html' 
 }

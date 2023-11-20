@@ -7,7 +7,6 @@ const sidebarClose = document.querySelector(".collapse_sidebar");
 const sidebarExpand = document.querySelector(".expand_sidebar");
 sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
 
-
 sidebar.addEventListener("mouseenter", () => {
   if (sidebar.classList.contains("hoverable")) {
     sidebar.classList.remove("close");
@@ -57,19 +56,17 @@ $.ajax({
     console.log(response)
       setContratadoNome(response.nome)
       setContratadoMatricula(response.matricula)
-      
   },
 
   error: function(response) {
-      validaResponse(response.responseJSON.causa);
+      alert("ERROR")
   }
 })
 
-
-var olaNomeFunc = document.getElementById("ola")
-
-olaNomeFunc.textContent = "Olá, " + localStorage.getItem("nome")
-
+function imagem() {
+  window.location.href = "../home-page/index.html"
+}
+  
 function cadastrar() {
   window.location.href = "../cadastro-func/index.html"
 }
@@ -86,6 +83,47 @@ function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
 
-function afastamento() {
-  window.location.href = "../afastamento/index.html"
+var msg = document.getElementById("mensagem")
+
+function programarAfastamento() {
+  const inicio = document.getElementById("date-inicio");
+  const fim = document.getElementById("date-fim");
+  const motivo = document.getElementById("id-motivo")
+  const descricao = document.getElementById("id-descricao")
+
+  const dataInicio = inicio.value.split('-').reverse().join('/');
+  const dataFim = fim.value.split('-').reverse().join('/');
+
+  
+
+  const afastamento = JSON.stringify({
+    "motivo":motivo.value,
+    "descricao":descricao.value,
+    "inicio":dataInicio,
+    "fim":dataFim
+  })
+
+  console.log(afastamento)
+
+    $.ajax({
+      url: "http://localhost:8888/afastamento/"+matricula,
+      type: "post",
+      data: afastamento,
+      contentType: "application/json",
+
+      success: function(response) {
+        msg.textContent =  "Você programou seu afastamento com sucesso!"
+        
+      setTimeout(() => {
+        window.href.location = "../afastamento/index.html"  
+      }, 1000);
+        
+      },
+
+      error: function(error) {
+        console.log(error.responseJSON)
+          msg.textContent = error.responseJSON.message
+      }
+  });
 }
+

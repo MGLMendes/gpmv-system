@@ -92,6 +92,10 @@ function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
 
+function afastamento() {
+  window.location.href = "../afastamento/index.html"
+}
+
 $.ajax({
   url: "http://localhost:8888/ferias/"+matricula,
   type: "get",

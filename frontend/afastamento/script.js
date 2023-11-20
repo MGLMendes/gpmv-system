@@ -48,6 +48,11 @@ if (window.innerWidth < 768) {
 
 var matricula = getContratadoMatricula();
 
+var olaNomeFunc = document.getElementById("ola")
+
+var nomeFuncionario = localStorage.getItem("nome")
+
+olaNomeFunc.textContent = "Bem vindo, " + nomeFuncionario
 $.ajax({
   url:"http://localhost:8888/contratados/"+matricula,
   type:"get",
@@ -65,22 +70,29 @@ $.ajax({
   }
 })
 
+var textoResponse = document.getElementById("texto")
+var botao = document.getElementById("programarAfastamento")
 
-var olaNomeFunc = document.getElementById("ola")
+$.ajax({
+  url:"http://localhost:8888/afastamento/"+matricula,
+  type:"get",
+  contentType: "application/json",
 
-olaNomeFunc.textContent = "Olá, " + localStorage.getItem("nome")
+  success: function(response) {
+    console.log(response)
+      setContratadoNome(response.nome)
+      setContratadoMatricula(response.matricula)
+      textoResponse.textContent = nomeFuncionario + ", você programou seu afastamento para começar dia "
+      + response.inicio + " e acabar dia " + response.fim + ". O motivo do seu afastamento é de " + response.motivo + 
+      " por conta de " + response.descricao
+  },
 
-function cadastrar() {
-  window.location.href = "../cadastro-func/index.html"
-}
-
-function listagem() {
-  window.location.href = "../listagem-func/index.html"
-}
-
-function beneficios() {
-  window.location.href = "../beneficios-home/index.html"
-}
+  error: function(response) {
+    console.log(response)
+    textoResponse.textContent = response.responseJSON.message
+    botao.style.display = "inline-block"
+  }
+})
 
 function ferias() {
   window.location.href = "../ferias-home/index.html"
@@ -88,4 +100,9 @@ function ferias() {
 
 function afastamento() {
   window.location.href = "../afastamento/index.html"
+}
+
+
+function programarAfastamento() {
+  window.location.href = "../afastamento-programar/index.html"
 }

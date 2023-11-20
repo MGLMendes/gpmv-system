@@ -95,3 +95,7 @@ function programarFerias() {
 function visualizarFerias() {
   window.location.href = '../ferias-visualizar/index.html' 
 }
+
+function afastamento() {
+  window.location.href = '../afastamento/index.html' 
+}

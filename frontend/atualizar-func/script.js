@@ -85,6 +85,10 @@ function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
 
+function afastamento() {
+  window.location.href = "../afastamento/index.html"
+}
+
 funcionario = pegar()
 
 let inputNome = $("#username")

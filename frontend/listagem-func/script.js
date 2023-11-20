@@ -35,6 +35,10 @@ function beneficios() {
   window.location.href = "../beneficios-home/index.html"
 }
 
+function afastamento() {
+  window.location.href = "../afastamento/index.html"
+}
+
 function consultar() {
     $.ajax({
         url: "http://localhost:8888/contratados",

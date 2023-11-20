@@ -222,6 +222,10 @@ function ferias() {
   window.location.href = "../ferias-home/index.html"
 }
 
+function afastamento() {
+  window.location.href = "../afastamento/index.html"
+}
+
 function admitirContratado() {
   const nome = username.value;
   const nomeMae = mae.value;
